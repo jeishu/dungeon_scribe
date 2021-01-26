@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #4a4a4a;
+    font-family: 'Yusei Magic', sans-serif;
+    color: rgb(206, 206, 206);
+    margin: 16px;
+}
+.login-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px;
+}
+.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin: 16px;
+}
+
+.container-one, .char-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin: 16px;
+    padding: 16px;
+    border: 1px solid black;
+}
+.container-one {
+    order: 2;
+}
+.char-container {
+    order: 1;
+}
+
+.user-profile, .fav-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 16px;
+    border: 1px solid black;
+}
+.user-profile {
+
+}
+
+.fav-actions {
+
+}
