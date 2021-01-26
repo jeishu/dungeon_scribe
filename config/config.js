@@ -12,7 +12,7 @@ if (process.env.JAWSDB_URL) {
     port: 3306,
     user: "root",
     password: process.env.DB_PASSWORD, // use a .env file to store your password
-    database: "dungeon_scribe",
+    database: "dungeon_scribe"
   });
 }
 
