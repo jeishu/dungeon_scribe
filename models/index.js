@@ -5,14 +5,15 @@ var path = require("path");
 var Sequelize = require("sequelize");
 var basename = path.basename(module.filename);
 var env = process.env.NODE_ENV || "development";
-var config = require(__dirname + "/../config/config.json")[env]; // we should change this over to the config.js file eventually
+var config = require(__dirname + "/../config/config.js")[env]; // we should change this over to the config.js file eventually
 var db = {};
-var sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
-  config
-);
+var sequelize;
+
+if (config.useEnvVariable) {
+  sequelize = new Sequelize(process.env[config.useEnvVariable]);
+} else {
+  sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 
 fs.readdirSync(__dirname)
   .filter(function (file) {
