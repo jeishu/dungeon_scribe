@@ -12,18 +12,13 @@
   </head>
 
   <body>
-    <div class="login-bar">
-      <a class="logout" href="/logout"> Logout </a> <!-- this routes to the logout and sends the user back to the login/signup pages -->
-
-      <h2>Welcome <span class="member-name"></span></h2> <!-- this connects to the members.js file -->
-    </div>
-
     <!-- this is the users profile page -->
     <div class="main-container">
+      
       <div class="container-one">
         <div class="user-profile">
-          <h3>Name</h3>
-          <p>Bio</p>
+          <h2>Welcome <span class="member-name"></span></h2> <!-- this connects to the members.js file -->
+          <a class="logout" href="/logout"> Logout </a> <!-- this routes to the logout and sends the user back to the login/signup pages -->
         </div>
 
         <div class="fav-actions">
@@ -46,7 +41,6 @@
       
     </div>
   
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/members.js"></script>
   </body>
