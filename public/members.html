@@ -15,27 +15,51 @@
     <!-- this is the users profile page -->
     <div class="main-container">
       
-      <div class="container-one">
+      <div class="container-right">
         <div class="user-profile">
           <h2>Welcome <span class="member-name"></span></h2> <!-- this connects to the members.js file -->
           <a class="logout" href="/logout"> Logout </a> <!-- this routes to the logout and sends the user back to the login/signup pages -->
         </div>
 
-        <div class="fav-actions">
-          <h3>Favorite Actions</h3>
+        <div class="game-button">
+          <button class="start-game">
+            Start New Session
+          </button>
+          <button class="join-current">
+            Join Current Session
+          </button>
+        </div>
+
+        <div class="chat-container">
+          <h2>Game Archive</h2>
+          <ul class="chat-archive">
+            <li>January 10</li>
+            <li>January 12</li>
+            <li>January 20</li>
+          </ul>
+        </div>
+
+        <div class="chat-logbox">
+          <h2>Game Log</h2>
         </div>
       </div>
     
-      <div class="char-container">
-        <h3>Characters</h3>
-        <div class="fav-char">
-          <h4>Character 1</h4>
+      <div class="container-left">
+        <div class="characters">
+          <h3>Characters</h3>
+          <div class="fav-char">
+            <h4>Character 1</h4>
+          </div>
+          <div class="fav-char">
+            <h4>Character 2</h4>
+          </div>
+          <div class="fav-char">
+            <h4>Character 3</h4>
+          </div>
         </div>
-        <div class="fav-char">
-          <h4>Character 2</h4>
-        </div>
-        <div class="fav-char">
-          <h4>Character 3</h4>
+        
+        <div class="fav-actions">
+          <h3>Favorite Actions</h3>
         </div>
       </div>
       
