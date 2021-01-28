@@ -26,13 +26,6 @@ CREATE TABLE notes (
 CREATE TABLE character (
     char_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
-    mod1 INT DEFAULT 0,
-    mod2 INT DEFAULT 0,
-    mod3 INT DEFAULT 0,
-    mod4 INT DEFAULT 0,
-    mod5 INT DEFAULT 0,
-    mod6 INT DEFAULT 0,
-    armor_class INT DEFAULT 10,
     FOREIGN KEY (user_id) REFERENCES user(user_id),
     FOREIGN KEY (favs_id) REFERENCES favorites(favs_id)
     FOREIGN KEY (notes_id) REFERENCES notes(notes_id)
