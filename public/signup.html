@@ -4,50 +4,70 @@
     <title>Passport Authentication</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
+    /> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap"
+      rel="stylesheet"
     />
-    <link href="stylesheets/style.css" rel="stylesheet" />
+    <link href="css/signup.css" rel="stylesheet" />
   </head>
 
   <body>
-    <h2>Sign Up Form</h2>
-    <form class="signup"> <!-- this class connects to signup.js -->
-      <label for="exampleInputEmail1">Email address</label>
-      <input
-        type="email"
-        id="email-input" 
-        placeholder="Email"
-      /> <!-- this id connects to signup.js -->
+    <div class="parent-container">
+      <h2>Sign Up Form</h2>
+      <div class="form-container">
+        <form class="signup">
+          <!-- this class connects to signup.js -->
+          <!-- <label for="exampleInputEmail1">Email address</label> -->
+          <input type="email" id="email-input" placeholder="Email" />
+          <!-- this id connects to signup.js -->
 
-      <label for="exampleInputPassword1">Password</label>
-      <input
-        type="password"
-        id="password-input"
-        placeholder="Password"
-      /> <!-- this id connects to signup.js -->
+          <!-- <label for="exampleInputPassword1">Password</label> -->
+          <input type="password" id="password-input" placeholder="Password" />
+          <!-- this id connects to signup.js -->
 
-      <!-- I tried to tear out most of the styling, but this alert is pretty reliant on bootstrap. we should replace it with something more custom. -->
-      <div
-        style="display: none"
-        id="alert"
-        class="alert alert-danger"
-        role="alert"
-      > <!-- its important to keep the alert id, it connects to the signup.js file -->
-        <span
-          class="glyphicon glyphicon-exclamation-sign"
-          aria-hidden="true"
-        ></span>
-        <span class="sr-only">Error:</span> <span class="msg"></span>
+          <!-- I tried to tear out most of the styling, but this alert is pretty reliant on bootstrap. we should replace it with something more custom. -->
+          <div
+            style="display: none"
+            id="alert"
+            class="alert alert-danger"
+            role="alert"
+          >
+            <!-- its important to keep the alert id, it connects to the signup.js file -->
+            <span
+              class="glyphicon glyphicon-exclamation-sign"
+              aria-hidden="true"
+            ></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
       </div>
-      <button type="submit">Sign Up</button>
 
-    </form>
-    <br />
-    <p>Or log in <a href="/login">here</a></p> <!-- this sends the user to the login page -->
+      <br />
+      <p>Or log in <a href="/login">here</a></p>
+      <!-- this sends the user to the login page -->
+    </div>
+
+    <div class="intro">
+      <div class="intro-text">
+        <h1 class="hide">
+          <span class="text">Dungeon Scribe</span>
+        </h1>
+      </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
+      integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript" src="js/signup.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>

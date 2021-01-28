@@ -4,30 +4,40 @@
     <title>Passport Authentication</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
-    />
-    <link href="stylesheets/style.css" rel="stylesheet" />
+    /> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet" />
   </head>
 
   <body>
-    <h2>Login Form</h2>
-    <form class="login">
-      <!-- this class connects to the login.js file -->
+    <div class="parent-container">
 
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" id="email-input" placeholder="Email" />
-      <!-- this id connects to the login.js file -->
+      <h2>Login Form</h2>
+      <div class="form-container">
+      <form class="login">
 
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" id="password-input" placeholder="Password" />
-      <!-- this id connects to the login.js file -->
+        
+          <!-- this class connects to the login.js file -->
 
-      <button type="submit">Login</button>
-    </form>
-    <br />
-    <p>Or sign up <a href="/">here</a></p> <!-- this sends the user to the signup page -->
+          <!-- <label for="exampleInputEmail1">Email address</label> -->
+          <input type="email" id="email-input" placeholder="Email" />
+          <!-- this id connects to the login.js file -->
+
+          <!-- <label for="exampleInputPassword1">Password</label> -->
+          <input type="password" id="password-input" placeholder="Password" />
+          <!-- this id connects to the login.js file -->
+
+          <button type="submit">Login</button>
+        </div>
+        
+      </form>
+      <br />
+      <p>Or sign up <a href="/">here</a></p> <!-- this sends the user to the signup page -->
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/login.js"></script>

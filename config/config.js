@@ -1,6 +1,6 @@
 module.exports = {
   development: {
-    username: "root",
+    username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: "dungeon_scribe",
     host: "127.0.0.1",

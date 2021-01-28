@@ -4,21 +4,92 @@
     <title>Passport Authentication</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
-    />
-    <link href="stylesheets/style.css" rel="stylesheet" />
+    /> -->
+    <link href="css/members.css" rel="stylesheet" />
   </head>
 
   <body>
-    <a class="navbar-brand" href="/logout"> Logout </a> <!-- this routes to the logout and sends the user back to the login/signup pages -->
-
-    <h2>Welcome <span class="member-name"></span></h2> <!-- this connects to the members.js file -->
-
     <!-- this is the users profile page -->
+    <div class="main-container">
+      <div class="container-right">
+        <div class="user-profile">
+          <h2>Welcome <span class="member-name"></span></h2>
+          <!-- this connects to the members.js file -->
+          <a class="logout" href="/logout"> Logout </a>
+          <!-- this routes to the logout and sends the user back to the login/signup pages -->
+        </div>
+
+        <div class="game-button">
+          <button class="start-game">Start New Session</button>
+          <button class="join-current">Join Current Session</button>
+        </div>
+
+        <div class="chat-container">
+          <h2>Game Archive</h2>
+          <ul class="chat-archive">
+            <li>January 10</li>
+            <li>January 12</li>
+            <li>January 20</li>
+          </ul>
+        </div>
+
+        <div class="chat-logbox">
+          <h2>Game Log</h2>
+        </div>
+      </div>
+
+      <div class="container-left">
+        <div class="characters">
+          <h3>Characters</h3>
+          <div class="fav-char">
+            <h4>Character 1</h4>
+          </div>
+          <div class="fav-char">
+            <h4>Character 2</h4>
+          </div>
+          <div class="fav-char">
+            <h4>Character 3</h4>
+          </div>
+        </div>
+
+        <div class="fav-actions">
+          <h3>Favorite Actions</h3>
+        </div>
+      </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/members.js"></script>
+
+    <br>
+
+				<form action="tempChatRoom.html">
+					<div class="form-control">
+						<label for="username">Username</label>
+						<input
+							type="text"
+							name="username"
+							id="username"
+							placeholder="Enter username..."
+							required
+						/>
+					</div>
+					<div class="form-control">
+						<label for="room">Room</label>
+						<select name="room" id="room"> <!-- we want to add the abitility to create new chat rooms -->
+							<option value="Ebberon">Ebberon</option>
+							<option value="Forgotten-Realms">Forgotten-Realms</option>
+							<option value="Mystara">Mystara</option>
+							<option value="Planescape">Planescape</option>
+							<option value="Ravenloft">Ravenloft</option>
+							<option value="Greyhawk">Greyhawk</option>
+						</select>
+					</div>
+					<button type="submit" class="btn">Join Chat</button>
+				</form>
+
   </body>
 </html>
