@@ -5,6 +5,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       unique: true,
     },
+    // eslint-disable-next-line camelcase
     success_mod: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -15,6 +16,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       default: 0,
     },
+    // eslint-disable-next-line camelcase
     dmg_mod: {
       type: DataTypes.INTEGER,
       allowNull: false,
