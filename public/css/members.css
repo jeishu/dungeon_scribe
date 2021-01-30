@@ -1,4 +1,6 @@
 /* Global */
+@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap');
+
 :root {
   --main-color: #4a4a4a;
   --secondary-color: #9e78a5;
@@ -14,7 +16,7 @@
 
 body {
   background-color: var(--main-color);
-  font-family: "Yusei Magic", sans-serif;
+  font-family: 'Marcellus SC', serif;
   color: rgb(206, 206, 206);
   margin: 16px;
 }
@@ -166,7 +168,10 @@ a {
     margin: 16px 0;
     justify-content: flex-start;
     align-items: center;
-    
+}
+.chatroom {
+  justify-content: flex-start;
+  align-items: center;
 }
 .form-control  {
     width: 100%;
@@ -177,7 +182,7 @@ a {
     padding: 10px;
     margin: var(--margin-divs);
     border-radius: 40px;
-    padding: 16px;
+    padding: 10px;
     text-shadow: 1px 1px 0 #292929;
     background-color: #795e7e;
     box-shadow:  7px 7px 14px #4b404e, 
@@ -185,7 +190,7 @@ a {
     transition: 1s all;
     color: rgb(197, 197, 197);
     cursor: pointer;
-    width: 100%;
+    width: 50%;
 }
 .chat-submit:hover {
   background: #5b4a5e;
