@@ -21,6 +21,18 @@ module.exports = function (app) {
       });
   });
 
+  app.post("/api/chat", function (req, res) {
+    // signing up a new user
+    db.Chat.create({
+      // we can add to this to create a username and maybe ask for a full name
+      body: req.body.body,
+      time: req.body.time,
+    })
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
+  });
+
   app.get("/logout", function (req, res) {
     req.logout(); // logout and send to homepage
     res.redirect("/");
