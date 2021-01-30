@@ -2,6 +2,8 @@ const chatForm = document.getElementById("chat-form");
 const chatMessages = document.querySelector(".chat-messages");
 const roomName = document.getElementById("room-name");
 const userList = document.getElementById("users");
+const newRoom = document.getElementById("chatName");
+const roomList = document.getElementById("room");
 
 const { username, room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
@@ -10,6 +12,24 @@ const { username, room } = Qs.parse(location.search, {
 const socket = io();
 
 socket.emit("joinRoom", { username, room });
+
+newRoom.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  console.log("good job");
+
+  let room = newRoom.value;
+
+  console.log(room);
+
+  if (!room) {
+    return false;
+  }
+
+  const rooms = `<option value="${room}">${room}</option>`;
+
+  roomList.appendChild(rooms);
+});
 
 chatForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -31,7 +51,7 @@ chatForm.addEventListener("submit", (e) => {
 // CSS the Message bubbles
 function outputMessage(message) {
   const div = document.createElement("div");
-  div.classList.add("messge");
+  div.classList.add("message");
   div.innerHTML = `<p class="meta">${message.username} <span>${message.time}</span></p>
   <p class="text">
     ${message.text}
@@ -55,7 +75,7 @@ socket.on("roomUsers", ({ room, users }) => {
   outputUsers(users);
 });
 
-socket.on("message", message => {
+socket.on("message", (message) => {
   console.log(message);
   outputMessage(message);
   chatMessages.scrollTop = chatMessages.scrollHeight;

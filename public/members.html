@@ -78,12 +78,8 @@
             <div class="form-control display-flex-row justify-align-center">
               <label for="room">Room</label>
               <select name="room" id="room"> <!-- we want to add the ability to create new chat rooms -->
-                <option value="Ebberon">Ebberon</option>
-                <option value="Forgotten-Realms">Forgotten-Realms</option>
-                <option value="Mystara">Mystara</option>
-                <option value="Planescape">Planescape</option>
-                <option value="Ravenloft">Ravenloft</option>
-                <option value="Greyhawk">Greyhawk</option>
+                <!-- <option value="Ebberon">Ebberon</option> -->
+                <!-- <option value="Forgotten-Realms">Forgotten-Realms</option> -->
               </select>
             </div>
             <button type="submit" class="chat-submit">Join Chat</button>
@@ -102,13 +98,28 @@
       </div>
       
     </div>
+
+
+  </div>
   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/members.js"></script>
+  <br>
 
-    <br>
+  <form id="submitChat" action="">
+    <div class="form-control">
+      <label for="chatName">New Session</label>
+      <input
+        type="text"
+        name="chatName"
+        id="chatName"
+        placeholder="Enter Session name..."
+        required
+      />
+    </div>
+    <button type="submit" class="chat-submit">New Session</button>
+  </form>
 
-				
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/members.js"></script>
 
   </body>
 </html>
