@@ -2,6 +2,8 @@ const chatForm = document.getElementById("chat-form");
 const chatMessages = document.querySelector(".chat-messages");
 const roomName = document.getElementById("room-name");
 const userList = document.getElementById("users");
+const rollForm = document.getElementById("rollForm");
+// const radios = document.getElementsByName("choice");
 
 const { username, room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
@@ -31,10 +33,20 @@ chatForm.addEventListener("submit", (e) => {
 // CSS the Message bubbles
 function outputMessage(message) {
   const div = document.createElement("div");
-  div.classList.add("messge");
+  div.classList.add("message");
   div.innerHTML = `<p class="meta">${message.username} <span>${message.time}</span></p>
   <p class="text">
     ${message.text}
+  </p>`;
+  document.querySelector(".chat-messages").appendChild(div);
+}
+
+function outputRoll(roll) {
+  const div = document.createElement("div");
+  div.classList.add("roll");
+  div.innerHTML = `<p class="meta">${roll.username} <span>${roll.time}</span></p>
+  <p class="text">
+    ${roll.text}
   </p>`;
   document.querySelector(".chat-messages").appendChild(div);
 }
@@ -64,4 +76,32 @@ socket.on("message", message => {
   console.log(message);
   outputMessage(message);
   chatMessages.scrollTop = chatMessages.scrollHeight;
+});
+
+socket.on("roll", roll => {
+  console.log(roll);
+  outputRoll(roll);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+});
+
+function getRadioVal (form, name) {
+  var val;
+  var radios = form.elements[name];
+
+  for (var i = 0, length = radios.length; i < length; i++) {
+    if (radios[i].checked) {
+      val = radios[i].value;
+      break;
+    }
+  }
+  return val;
+}
+rollForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  var val = getRadioVal(e.target, "choice");
+  console.log(val);
+  socket.emit("roll", val);
+
+  // e.target.elements.msg.value = "";
+  // e.target.elements.msg.focus();
 });

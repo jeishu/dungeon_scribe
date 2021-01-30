@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Passport Authentication</title>
+    <title>Dungeon Scribe</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- <link
@@ -41,9 +41,10 @@
         
         <!-- =========== Characters =========== -->
         <div class="char-fav-container box-shadow display-flex-row justify-align-center">
+
+          <!-- Character List -->
           <div class="characters display-flex-column">
             <h2>Characters</h2>
-
             <div class="char-archive display-flex-column justify-align-center">
               <div class="fav-char">
                 <h4>Character 1</h4>
@@ -57,37 +58,41 @@
             </div>
           </div>
 
+          <!-- Favorite Actions -->
           <div class="fav-actions inset-purple display-flex-column ">
             <h2>Favorite Actions</h2>
           </div>
         </div>
 
-        <div class="chatroom-form box-shadow display-flex-column">
-          <h2>Chat Room</h2>
-          <form action="tempChatRoom.html">
-            <div class="form-control display-flex-row justify-align-center">
-              <label for="username">Username</label>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                placeholder="Enter username..."
-                required
-              />
-            </div>
-            <div class="form-control display-flex-row justify-align-center">
-              <label for="room">Room</label>
-              <select name="room" id="room"> <!-- we want to add the ability to create new chat rooms -->
-                <option value="Ebberon">Ebberon</option>
-                <option value="Forgotten-Realms">Forgotten-Realms</option>
-                <option value="Mystara">Mystara</option>
-                <option value="Planescape">Planescape</option>
-                <option value="Ravenloft">Ravenloft</option>
-                <option value="Greyhawk">Greyhawk</option>
-              </select>
-            </div>
-            <button type="submit" class="chat-submit">Join Chat</button>
-          </form>
+        <div class="chatroom-form box-shadow display-flex-column justify-align-center">
+          <div class="chatroom display-flex-column">
+            <h2>Chat Room</h2>
+              <form action="tempChatRoom.html">
+                <div class="form-control display-flex-row justify-align-center">
+                  <label for="username">Username</label>
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="Enter username..."
+                    required
+                  />
+                </div>
+                <div class="form-control display-flex-row justify-align-center">
+                  <label for="room">Room</label>
+                  <select name="room" id="room"> <!-- we want to add the ability to create new chat rooms -->
+                    <option value="Ebberon">Ebberon</option>
+                    <option value="Forgotten-Realms">Forgotten-Realms</option>
+                    <option value="Mystara">Mystara</option>
+                    <option value="Planescape">Planescape</option>
+                    <option value="Ravenloft">Ravenloft</option>
+                    <option value="Greyhawk">Greyhawk</option>
+                  </select>
+                </div>
+                <button type="submit" class="chat-submit">Join Chat</button>
+              </form>
+          </div>
+          
         </div>
 
         <div class="game-button box-shadow display-flex-row justify-align-center">
@@ -105,10 +110,5 @@
   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/members.js"></script>
-
-    <br>
-
-				
-
   </body>
 </html>
