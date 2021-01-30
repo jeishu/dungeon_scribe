@@ -3,7 +3,7 @@ const chatMessages = document.querySelector(".chat-messages");
 const roomName = document.getElementById("room-name");
 const userList = document.getElementById("users");
 const rollForm = document.getElementById("rollForm");
-// const radios = document.getElementsByName("choice");
+const modVal = document.querySelector(".chooseMod");
 
 const { username, room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
@@ -91,11 +91,20 @@ function getRadioVal (form, name) {
   }
   return val;
 }
+
+
 rollForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  var val = getRadioVal(e.target, "choice");
-  console.log(val);
-  socket.emit("roll", val);
+  var dieVal = getRadioVal(e.target, "choice");
+  console.log(dieVal);
+  var mod = modVal.value;
+  console.log(mod);
+  let roll = {
+    dice: 1,
+    sides: dieVal,
+    mod
+  };
+  socket.emit("roll", roll);
 
   // e.target.elements.msg.value = "";
   // e.target.elements.msg.focus();
