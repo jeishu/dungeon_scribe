@@ -17,6 +17,10 @@ module.exports = function (sequelize, DataTypes) {
       onDelete: "cascade",
     });
 
+    Character.hasMany(models.Chat, {
+      onDelete: "cascade",
+    });
+
     Character.belongsTo(models.User, {
       foreignKey: {
         allowNull: false,
