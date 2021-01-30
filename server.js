@@ -33,7 +33,9 @@ require("./routes/html-routes.js")(app);
 
 app.use(express.static(path.join(__dirname, "public")));
 
-io.on("connection", () => {
+const botName = "Court Scribe";
+
+io.on("connection", socket => {
   socket.on("joinRoom", ({ username, room }) => {
     const user = userJoin(socket.id, username, room);
 
@@ -54,7 +56,7 @@ io.on("connection", () => {
     });
   });
 
-  socket.on("chatMessage", () => {
+  socket.on("chatMessage", msg => {
     const user = getCurrentUser(socket.id);
 
     io.to(user.room).emit("message", formatMessage(user.username, msg));

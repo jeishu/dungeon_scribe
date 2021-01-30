@@ -14,7 +14,13 @@ socket.emit("joinRoom", { username, room });
 chatForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const msg = e.target.elements.msg.value;
+  let msg = e.target.elements.msg.value;
+
+  msg = msg.trim();
+
+  if (!msg) {
+    return false;
+  }
 
   socket.emit("chatMessage", msg);
 
@@ -27,7 +33,7 @@ function outputMessage(message) {
   div.classList.add("messge");
   div.innerHTML = `<p class="meta">${message.username} <span>${message.time}</span></p>
   <p class="text">
-    ${message}
+    ${message.text}
   </p>`;
   document.querySelector(".chat-messages").appendChild(div);
 }
@@ -47,7 +53,7 @@ socket.on("roomUsers", ({ room, users }) => {
   outputUsers(users);
 });
 
-socket.on("message", (message) => {
+socket.on("message", message => {
   console.log(message);
   outputMessage(message);
   chatMessages.scrollTop = chatMessages.scrollHeight;

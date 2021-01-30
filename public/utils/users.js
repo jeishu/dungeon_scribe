@@ -9,7 +9,7 @@ function userJoin(id, username, room) {
 }
 
 function getCurrentUser(id) {
-  return users.find(user.id === id);
+  return users.find(user => user.id === id);
 }
 
 function userLeave(id) {
