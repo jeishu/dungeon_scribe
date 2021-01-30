@@ -66,7 +66,7 @@ io.on("connection", socket => {
 
   socket.on("roll", roll => {
     const user = getCurrentUser(socket.id);
-    let rollOutput = `rolled a ${die(1, parseInt(roll))}`;
+    let rollOutput = `rolled a ${die(parseInt(roll.dice), parseInt(roll.sides), parseInt(roll.mod))}`;
     console.log(rollOutput);
 
     io.to(user.room).emit("message", formatRoll(user.username, rollOutput));
