@@ -28,6 +28,7 @@ chatForm.addEventListener("submit", (e) => {
   e.target.elements.msg.focus();
 });
 
+// CSS the Message bubbles
 function outputMessage(message) {
   const div = document.createElement("div");
   div.classList.add("messge");
@@ -42,6 +43,7 @@ function outputRoomName(room) {
   roomName.innerText = room;
 }
 
+// User names CSS
 function outputUsers(users) {
   userList.innerHTML = `
     ${users.map((user) => `<li>${user.username}</li>`).join("")}
