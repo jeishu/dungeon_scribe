@@ -10,23 +10,38 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/tempChatStyles.css" />
-    <title>ChatCord App</title>
+    <title>Dungeon Scribe: Game Room</title>
   </head>
   <body>
-    <div class="chat-container">
+
+    <!-- Chatroom Box -->
+    <div class="chat-container box-shadow">
+
+      <!-- Title -->
       <header class="chat-header">
-        <h1><i class="fas fa-smile"></i> Dungeon Scribe</h1>
-        <a href="members.html" class="btn">Leave Room</a>
+        <h1>Dungeon Scribe</h1>
+        <a href="members.html" class="btn leave-btn">Leave Room</a>
       </header>
+
       <main class="chat-main">
+        <!-- Message Box -->
+        <div class="chat-messages"></div>
+
+        <!-- Side bar -->
         <div class="chat-sidebar">
+
+          <!-- Room Name -->
           <h3><i class="fas fa-comments"></i> Room Name:</h3>
-          <h2 id="room-name">JavaScript</h2>
+          <h2 id="room-name"></h2>
+
+          <!-- Users List -->
           <h3><i class="fas fa-users"></i> Users</h3>
           <ul id="users"></ul>
+
         </div>
-        <div class="chat-messages"></div>
+
       </main>
+      <!-- Textbox Inputs -->
       <div class="chat-form-container">
         <form id="chat-form">
           <input
@@ -36,7 +51,7 @@
             required
             autocomplete="off"
           />
-          <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+          <button class="btn send-btn"><i class="fas fa-paper-plane"></i> Send</button>
         </form>
       </div>
     </div>
