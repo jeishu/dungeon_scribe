@@ -76,5 +76,33 @@
   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/members.js"></script>
+
+    <br>
+
+				<form action="tempChatRoom.html">
+					<div class="form-control">
+						<label for="username">Username</label>
+						<input
+							type="text"
+							name="username"
+							id="username"
+							placeholder="Enter username..."
+							required
+						/>
+					</div>
+					<div class="form-control">
+						<label for="room">Room</label>
+						<select name="room" id="room"> <!-- we want to add the abitility to create new chat rooms -->
+							<option value="Ebberon">Ebberon</option>
+							<option value="Forgotten-Realms">Forgotten-Realms</option>
+							<option value="Mystara">Mystara</option>
+							<option value="Planescape">Planescape</option>
+							<option value="Ravenloft">Ravenloft</option>
+							<option value="Greyhawk">Greyhawk</option>
+						</select>
+					</div>
+					<button type="submit" class="btn">Join Chat</button>
+				</form>
+
   </body>
 </html>
