@@ -6,12 +6,14 @@ const session = require("express-session");
 const passport = require("./config/passport");
 const socketio = require("socket.io");
 const formatMessage = require("./public/utils/messages");
+const formatRoll = require("./public/utils/rolls");
 const {
   userJoin,
   getCurrentUser,
   userLeave,
   getRoomUsers,
 } = require("./public/utils/users");
+const die = require("./lib/die");
 
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
@@ -60,6 +62,14 @@ io.on("connection", socket => {
     const user = getCurrentUser(socket.id);
 
     io.to(user.room).emit("message", formatMessage(user.username, msg));
+  });
+
+  socket.on("roll", roll => {
+    const user = getCurrentUser(socket.id);
+    let rollOutput = `rolled a ${die(parseInt(roll.dice), parseInt(roll.sides), parseInt(roll.mod))}`;
+    console.log(rollOutput);
+
+    io.to(user.room).emit("message", formatRoll(user.username, rollOutput));
   });
 
   socket.on("disconnect", () => {

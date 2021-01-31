@@ -3,6 +3,10 @@ module.exports = function (sequelize, DataTypes) {
     body: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    time: {
+      type: DataTypes.TIME,
+      allowNull: false
     }
   });
 
