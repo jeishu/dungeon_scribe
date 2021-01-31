@@ -35,7 +35,7 @@
       <!-- ============== LEFT CONTAINER ============== -->
       <div class="container-left display-flex-column">
         
-        <div class="user-profile box-shadow display-flex-row">
+        <div class="user-profile box-shadow display-flex-row justify-align-center">
           <h2>Welcome <span class="member-name"></span></h2> <!-- this connects to the members.js file -->
         </div>
         
@@ -62,40 +62,62 @@
           <div class="fav-actions inset-purple display-flex-column ">
             <h2>Favorite Actions</h2>
           </div>
+          
         </div>
 
-        <div class="chatroom-form box-shadow display-flex-column justify-align-center">
+        <div class="chatroom-form box-shadow display-flex-row">
+          
+          <!-- Creating a new chat session -->
+          <div class="newSession display-flex-column">
+            <h2>Create Session</h2>
+            <form id="submitChat">
+              <div class="form-control display-flex-row justify-align-center">
+                <label for="chatName">Session Name</label>
+                <input
+                  type="text"
+                  name="chatName"
+                  id="chatName"
+                  placeholder="Enter Session name..."
+                  required
+                />
+              </div>
+              <button type="submit" class="chat-submit">New Session</button>
+            </form> 
+          </div>
+
+          <!-- Joining a Chat room -->
           <div class="chatroom display-flex-column">
-            <h2>Chat Room</h2>
-              <form action="tempChatRoom.html">
-                <div class="form-control display-flex-row justify-align-center">
-                  <label for="username">Username</label>
-                  <input
-                    type="text"
-                    name="username"
-                    id="username"
-                    placeholder="Enter username..."
-                    required
-                  />
-                </div>
-                <div class="form-control display-flex-row justify-align-center">
-                  <label for="room">Room</label>
-                  <select name="room" id="room"> <!-- we want to add the ability to create new chat rooms -->
-                    <option value="Test-Room">Test Room</option>
-                    <!-- <option value="Ebberon">Ebberon</option>
-                    <option value="Forgotten-Realms">Forgotten-Realms</option>
-                    <option value="Mystara">Mystara</option>
-                    <option value="Planescape">Planescape</option>
-                    <option value="Ravenloft">Ravenloft</option>
-                    <option value="Greyhawk">Greyhawk</option> -->
-                  </select>
-                </div>
-                <button type="submit" class="chat-submit">Join Chat</button>
-              </form>
+            <h2>Join Session</h2>
+            <form action="tempChatRoom.html">
+              <div class="form-control display-flex-row justify-align-center">
+                <label for="username">Username</label>
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="Enter username..."
+                  required
+                />
+              </div>
+              <div class="form-control display-flex-row justify-align-center">
+                <label for="room">Room</label>
+                <select name="room" id="room"> <!-- we want to add the ability to create new chat rooms -->
+                  <option value="Test-Room">Test Room</option>
+                  <!-- <option value="Ebberon">Ebberon</option>
+                  <option value="Forgotten-Realms">Forgotten-Realms</option>
+                  <option value="Mystara">Mystara</option>
+                  <option value="Planescape">Planescape</option>
+                  <option value="Ravenloft">Ravenloft</option>
+                  <option value="Greyhawk">Greyhawk</option> -->
+                </select>
+              </div>
+              <button type="submit" class="chat-submit">Join Session</button>
+            </form>
           </div>
           
         </div>
 
+        <!-- Buttons -->
         <div class="game-button box-shadow display-flex-row justify-align-center">
           <div class="lobby-button box-shadow display-flex-row">
             <button class="start-game">New Session</button>
@@ -109,22 +131,7 @@
       
     </div>
 
-
   </div>
-  
-  <br>
-
-  <form id="submitChat">
-    <label for="chatName">New Session</label>
-    <input
-      type="text"
-      name="chatName"
-      id="chatName"
-      placeholder="Enter Session name..."
-      required
-    />
-    <button type="submit" class="chat-submit">New Session</button>
-  </form>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>

@@ -157,10 +157,9 @@ a {
 	background: var(--main-color);
 	box-shadow: inset 5px 5px 14px #3f3f3f, inset -5px -5px 14px #555555;
 }
-.chat-sidebar ul li {
 
+.chat-sidebar ul li {
 	padding: 10px 0;
-	
 }
 
 .chat-messages {
@@ -168,7 +167,6 @@ a {
 	max-height: 500px;
 	overflow-y: scroll;
 	background-color: white;
-
 }
 
 .chat-messages .message {
@@ -201,7 +199,6 @@ a {
   display: flex;
 }
 
-
 .chat-form-container input[type='text'] {
 	font-size: 16px;
 	padding: 5px;
@@ -211,16 +208,7 @@ a {
 	border-bottom-left-radius: 10px;
 }
 
-@media (max-width: 700px) {
-  .chat-main {
-    display: block;
-  }
-
-  .chat-sidebar {
-    display: none;
-  }
-}
-
+/* Dice */
 .diceIcon {
   font-size: 2rem;
   width: 10vw;
@@ -251,4 +239,14 @@ a {
 	width: 10vw;
 	height: 10vw;
 	padding: 2vw;
-  }
+}
+
+@media (max-width: 700px) {
+	.chat-main {
+	  display: block;
+	}
+  
+	.chat-sidebar {
+	  display: none;
+	}
+}
