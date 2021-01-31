@@ -27,30 +27,30 @@ module.exports = function (app) {
     // create a new character
     db.Character.create({
       name: req.body.body,
-      UserId: userInfo.dataValues.id
-    })
-      .catch(function (err) {
-        res.status(401).json(err);
-      });
+      UserId: userInfo.dataValues.id,
+    }).catch(function (err) {
+      res.status(401).json(err);
+    });
   });
 
   app.post("/api/favorite", function (req, res) {
     // create a new favorite
     db.Favorite.create({
       move: req.body.body,
+      // eslint-disable-next-line camelcase
       success_mod: req.body.body,
       dmg: req.body.body,
+      // eslint-disable-next-line camelcase
       dmg_mod: req.body.body,
-      CharacterId: 
-    })
-      .catch(function (err) {
-        res.status(401).json(err);
-      });
+      // CharacterId:
+    }).catch(function (err) {
+      res.status(401).json(err);
+    });
   });
   // app.post("/api/chat", function (req, res) {
-    // signing up a new user
-    // db.Chat.create({
-      // we can add to this to create a username and maybe ask for a full name
+  // signing up a new user
+  // db.Chat.create({
+  // we can add to this to create a username and maybe ask for a full name
   //     body: req.body.body,
   //     time: req.body.time,
   //   })
