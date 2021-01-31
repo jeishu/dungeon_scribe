@@ -41,7 +41,7 @@ module.exports = function (app) {
       success_mod: req.body.body,
       dmg: req.body.body,
       dmg_mod: req.body.body,
-      CharacterId: 
+      // CharacterId: 
     })
       .catch(function (err) {
         res.status(401).json(err);
