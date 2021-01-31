@@ -81,13 +81,7 @@
                 <div class="form-control display-flex-row justify-align-center">
                   <label for="room">Room</label>
                   <select name="room" id="room"> <!-- we want to add the ability to create new chat rooms -->
-                    <option value="Test-Room">Test Room</option>
-                    <!-- <option value="Ebberon">Ebberon</option>
-                    <option value="Forgotten-Realms">Forgotten-Realms</option>
-                    <option value="Mystara">Mystara</option>
-                    <option value="Planescape">Planescape</option>
-                    <option value="Ravenloft">Ravenloft</option>
-                    <option value="Greyhawk">Greyhawk</option> -->
+                    <option value="Drow-Ambush">Drow Ambush</option>
                   </select>
                 </div>
                 <button type="submit" class="chat-submit">Join Chat</button>
@@ -114,6 +108,28 @@
   
   <br>
 
+  <!-- select for picking from current character list -->
+  <div class="form-control display-flex-row justify-align-center">
+    <label for="char">Characters</label>
+    <select name="char" id="char"> <!-- we want to add the ability to create new chat rooms -->
+      <option value="Test-Room">Drizzt Do'Urden</option>
+    </select>
+  </div>
+
+  <!-- new character name -->
+  <form id="submitChar">
+    <label for="charName">New Character</label>
+    <input
+      type="text"
+      name="charName"
+      id="charName"
+      placeholder="Enter character name..."
+      required
+    />
+    <button type="submit" class="chat-submit">New Character</button>
+  </form>
+
+  <!-- new chatroom name -->
   <form id="submitChat">
     <label for="chatName">New Session</label>
     <input
