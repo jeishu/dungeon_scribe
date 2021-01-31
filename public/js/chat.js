@@ -2,13 +2,8 @@ const chatForm = document.getElementById("chat-form");
 const chatMessages = document.querySelector(".chat-messages");
 const roomName = document.getElementById("room-name");
 const userList = document.getElementById("users");
-<<<<<<< HEAD
-const newRoom = document.getElementById("chatName");
-const roomList = document.getElementById("room");
-=======
 const rollForm = document.getElementById("rollForm");
 const modVal = document.querySelector(".chooseMod");
->>>>>>> cd8ab9125bb62780370e1c9ce79aaa8dcbf27bb5
 
 const { username, room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
@@ -17,24 +12,6 @@ const { username, room } = Qs.parse(location.search, {
 const socket = io();
 
 socket.emit("joinRoom", { username, room });
-
-newRoom.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  console.log("good job");
-
-  let room = newRoom.value;
-
-  console.log(room);
-
-  if (!room) {
-    return false;
-  }
-
-  const rooms = `<option value="${room}">${room}</option>`;
-
-  roomList.appendChild(rooms);
-});
 
 chatForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -90,16 +67,12 @@ socket.on("roomUsers", ({ room, users }) => {
   outputUsers(users);
 });
 
-<<<<<<< HEAD
-socket.on("message", (message) => {
-=======
 socket.on("message", message => {
   // $.post("/api/chat", {
   //   body: message.text,
   //   time: message.time,
   // }).then((result) => result.json);
 
->>>>>>> cd8ab9125bb62780370e1c9ce79aaa8dcbf27bb5
   console.log(message);
   outputMessage(message);
   chatMessages.scrollTop = chatMessages.scrollHeight;
