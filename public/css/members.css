@@ -103,8 +103,8 @@ a {
   align-items: stretch;
   width: 50%;
   height: 100%;
-  padding: 32px;
-  margin: auto;
+  padding: 16px 32px;
+  margin: auto 16px;
 }
 .form-control  {
   width: 100%;
