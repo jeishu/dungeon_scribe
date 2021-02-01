@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
   var Session = sequelize.define("Session", {
-    body: {
+    sessionName: {
       type: DataTypes.TEXT,
       allowNull: false
     }

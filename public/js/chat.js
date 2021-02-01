@@ -68,10 +68,10 @@ socket.on("roomUsers", ({ room, users }) => {
 });
 
 socket.on("message", message => {
-  // $.post("/api/chat", {
-  //   body: message.text,
-  //   time: message.time,
-  // }).then((result) => result.json);
+  $.post("/api/chat", {
+    body: message.text,
+    time: message.time,
+  }).then((result) => result.json);
 
   console.log(message);
   outputMessage(message);

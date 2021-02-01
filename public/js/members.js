@@ -33,6 +33,13 @@ characterForm.addEventListener("submit", (e) => {
   }
 
   if (exists === false) { // if unique then add the input to the drop down
+    // $.post("/api/character", {
+    //   name: char
+    // }).then((result) => result.json);
+    // console.log(result);
+    // $.get("/api/character", { 
+      
+    // });
     charList.add(option); // option contains new character at this point ** DB **
   }
 });
@@ -65,6 +72,9 @@ sessionForm.addEventListener("submit", (e) => {
   }
 
   if (exists === false) { // if unique then add the input to the drop down
+    // $.post("/api/session", {
+    //   sessionName: room
+    // }).then((result) => result.json);
     roomList.add(option); // option contains new room at this point ** DB **
   }
 });
