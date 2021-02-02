@@ -94,14 +94,41 @@ io.on("connection", (socket) => {
 
   socket.on("roll", (roll) => {
     const user = getCurrentUser(socket.id);
+    let SessionId;
+    let CharacterId;
     let rollOutput = `rolled a ${die(
       parseInt(roll.dice),
       parseInt(roll.sides),
       parseInt(roll.mod)
     )}`;
     console.log(rollOutput);
+    let rollChat = formatRoll(user.username, rollOutput);
 
-    io.to(user.room).emit("message", formatRoll(user.username, rollOutput));
+    io.to(user.room).emit("message", rollChat);
+    db.Session.findOne({
+      where: {
+        sessionName: user.room,
+      },
+    }).then(function ({id}) {
+      SessionId = id;
+      db.Character.findOne({
+        where: {
+          name: user.username
+        }
+      }).then(function ({id}) {
+        CharacterId = id;
+        console.log(SessionId);
+        console.log(CharacterId);
+        db.Chat.create({
+          body: rollChat.text,
+          time: rollChat.time,
+          CharacterId,
+          SessionId
+        }).catch(function (err) {
+          console.log(err);
+        });
+      });
+    });
   });
 
   socket.on("disconnect", () => {

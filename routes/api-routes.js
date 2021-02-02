@@ -98,6 +98,30 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/sessions/:id", function (req, res) {
+    // create a new favorite
+    db.Session.findAll({
+      where: {
+        UserId: req.params.id,
+      },
+    }).then(function (result) {
+      console.log(JSON.stringify(result));
+      // let resultArray = result.map(x => {
+      //   id: x.id,
+      //   name: x.name
+      // });
+
+      let resultArr = [];
+      for (let i = 0; i < result.length; i++) {
+        resultArr.push({
+          id: result[i].id,
+          name: result[i].name,
+        });
+      }
+      res.json(resultArr);
+    });
+  });
+
   app.post("/api/favorite", function (req, res) {
     // create a new favorite
     db.Favorite.create({

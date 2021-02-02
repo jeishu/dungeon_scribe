@@ -21,9 +21,10 @@ module.exports = function (sequelize, DataTypes) {
     User.hasMany(models.Character, {
       onDelete: "cascade",
     });
-    // User.hasMany(models.Chat, {
-    //   onDelete: "cascade",
-    // });
+
+    User.hasMany(models.Session, {  //Dan just added this and it doesn't work
+      onDelete: "cascade",
+    });
   };
 
   User.prototype.validPassword = function (password) {
