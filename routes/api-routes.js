@@ -1,6 +1,6 @@
 var db = require("../models");
 var passport = require("../config/passport");
-let userInfo;
+// let userInfo;
 
 module.exports = function (app) {
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
@@ -28,8 +28,8 @@ module.exports = function (app) {
   app.get("/api/user/:id", function (req, res) {
     db.User.findOne({
       where: {
-        id: req.params.id
-      }
+        id: req.params.id,
+      },
     }).then(function (dbUser) {
       res.json(dbUser);
     });
@@ -38,8 +38,8 @@ module.exports = function (app) {
   app.get("/api/user/:email", function (req, res) {
     db.User.findOne({
       where: {
-        email: req.params.email
-      }
+        email: req.params.email,
+      },
     }).then(function (dbUser) {
       res.json(dbUser);
     });
@@ -50,12 +50,14 @@ module.exports = function (app) {
     // create a new character
     db.Character.create({
       name: req.body.name,
-      UserId: req.body.UserId
-    }).then(function (dbCharacter) {
-      res.json(dbCharacter);
-    }).catch(function (err) {
-      res.status(401).json(err);
-    });
+      UserId: req.body.UserId,
+    })
+      .then(function (dbCharacter) {
+        res.json(dbCharacter);
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
   });
 
   app.get("/api/character/:id", function (req, res) {
@@ -64,11 +66,35 @@ module.exports = function (app) {
     // In this case, just db.Post
     db.Character.findOne({
       where: {
-        id: req.params.id
+        id: req.params.id,
       },
-      include: [db.Character]
+      include: [db.Character],
     }).then(function (dbCharacter) {
       res.json(dbCharacter);
+    });
+  });
+
+  app.get("/api/characters/:id", function (req, res) {
+    // create a new favorite
+    db.Character.findAll({
+      where: {
+        UserId: req.params.id,
+      },
+    }).then(function (result) {
+      console.log(JSON.stringify(result));
+      // let resultArray = result.map(x => {
+      //   id: x.id,
+      //   name: x.name
+      // });
+
+      let resultArr = [];
+      for (let i = 0; i < result.length; i++) {
+        resultArr.push({
+          id: result[i].id,
+          name: result[i].name
+        });
+      }
+      res.json(resultArr);
     });
   });
 
@@ -84,7 +110,7 @@ module.exports = function (app) {
       // eslint-disable-next-line camelcase
       sidesDmgDice: req.body.body,
       // eslint-disable-next-line camelcase
-      dmgMod: req.body.body
+      dmgMod: req.body.body,
       // CharacterId: ,
     }).catch(function (err) {
       res.status(401).json(err);
@@ -94,7 +120,7 @@ module.exports = function (app) {
   app.get("/api/favorite", function (req, res) {
     // create a new favorite
     db.Favorite.findAll({
-      include: [db.Favorite]
+      include: [db.Favorite],
     }).then(function (dbFavorite) {
       res.json(dbFavorite);
     });
@@ -104,7 +130,7 @@ module.exports = function (app) {
     // create a new favorite
     db.Session.create({
       // eslint-disable-next-line camelcase
-      sessionName: req.body.body
+      sessionName: req.body.body,
     }).catch(function (err) {
       res.status(401).json(err);
     });
@@ -134,7 +160,7 @@ module.exports = function (app) {
       res.json({
         // if more user data is collected it should be added here
         email: req.user.email, // dont put the password here
-        id: req.user.id
+        id: req.user.id,
       });
     }
   });

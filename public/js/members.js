@@ -62,6 +62,22 @@ var repeat = function(){
 
 repeat();
 
+function renderChars() {
+  charList.innerHTML = "";
+  let userId = userIdEl.getAttribute("data-userId");
+  console.log(userId);
+  $.get(`/api/characters/${userId}`).then(function (data) {
+    console.log(data[0]);
+    data.forEach(char => {
+      let charEl = document.createElement("option");
+      charEl.setAttribute("value", "Test-Room");
+      charEl.setAttribute("data-characterId", `${char.id}`);
+      charEl.innerText = `${char.name}`;
+      charList.append(charEl);
+    });
+  });
+}
+
 characterForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let userId = userIdEl.getAttribute("data-userId");
@@ -141,5 +157,6 @@ $(document).ready(function () {
     $(".member-name").text(data.email);
     console.log(data.id);
     $(".member-name").attr("data-userId", data.id);
+    renderChars();
   });
 });
