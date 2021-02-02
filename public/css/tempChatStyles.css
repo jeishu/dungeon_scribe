@@ -3,14 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
 
 :root {
-	--dark-color-a: #667aff;
-	--dark-color-b: #7386ff;
-	--light-color: #e6e9ff;
-	--success-color: #5cb85c;
-	--error-color: #d9534f;
-
 	--main-color: #4a4a4a;
 	--secondary-color: #9e78a5;
+	--chat-color: #9e78a5;
 	--padding-divs: 16px;
 	--margin-divs: 16px;  
 }
@@ -25,6 +20,7 @@ body {
 	font-size: 16px;
 	background: var(--main-color);
 	margin: 20px;
+	color: white;
 }
 
 h1 {
@@ -180,20 +176,20 @@ a {
 .chat-messages .message {
   padding: 10px;
   margin-bottom: 15px;
-  background-color: var(--light-color);
+  background-color: var(--chat-color);
   border-radius: 5px;
 }
 
 .chat-messages .message .meta {
   font-size: 15px;
   font-weight: bold;
-  color: var(--dark-color-b);
+  color: var(--main-color);
   opacity: 0.7;
   margin-bottom: 7px;
 }
 
 .chat-messages .message .meta span {
-  color: #777;
+  color: rgb(255, 255, 255);
 }
 
 .chat-form-container {
@@ -218,10 +214,10 @@ a {
 
 /* Dice */
 .dice-container {
-	
+	padding: 1rem;
+	margin: 1rem;
 }
 .diceIcon {
-  font-size: 1rem;
   width: 5vw;
   height: 5vw;
   padding: 1rem;
@@ -237,15 +233,14 @@ a {
 }
 
 .diceIcon:active {
-  opacity: 0.4;
   cursor: pointer;
-  border-radius: 25%;
-  background: var(--main-color);
-  box-shadow: inset 5px 5px 14px #3f3f3f, inset -5px -5px 14px #555555;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+
 }
 
 .dice[type="radio"]:checked + label > i {
-  border: 20px solid rgb(228, 207, 94);
+  border: 20px solid rgb(255, 255, 255);
 }
 .numDiceRoll {
 	padding: 10px;
@@ -258,7 +253,7 @@ a {
 .modIcon {
 	font-size: 2rem;
 	width: 10vw;
-	height: 10vw;
+	height: auto;
 	padding: 2vw;
 }
 
