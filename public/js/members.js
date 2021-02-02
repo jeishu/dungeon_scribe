@@ -62,9 +62,25 @@ var repeat = function(){
 
 repeat();
 
+function renderChars() {
+  charList.innerHTML = "";
+  let userId = userIdEl.getAttribute("data-userId");
+  console.log(userId);
+  $.get(`/api/characters/${userId}`).then(function (data) {
+    console.log(data[0]);
+    data.forEach(char => {
+      let charEl = document.createElement("option");
+      charEl.setAttribute("value", "Test-Room");
+      charEl.setAttribute("data-characterId", `${char.id}`);
+      charEl.innerText = `${char.name}`;
+      charList.append(charEl);
+    });
+  });
+}
+
 characterForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
+  let userId = userIdEl.getAttribute("data-userId");
   let char = charName.value; // grab the content of the input
   char = char.trim(); // clean up any extra spaces around input
   let charValue = char.replace(/ /g, "-"); // reformat inputs to work as searchable values
@@ -93,11 +109,14 @@ characterForm.addEventListener("submit", (e) => {
   }
 
   if (exists === false) { // if unique then add the input to the drop down
-    console.log(char); // char & charValue contains new character at this point ** DB **
-    console.log(charValue);
-    console.log(option);
+    console.log(char, userId);
+    $.post("/api/character", {
+      name: char,
+      UserId: userId
+    }).then(console.log("potato"));
+    // console.log(result);
+    charList.add(option); // option contains new character at this point ** DB **
     charSelectList.add(option2);
-    charList.add(option);
   }
 });
 
@@ -129,9 +148,10 @@ sessionForm.addEventListener("submit", (e) => {
   }
 
   if (exists === false) { // if unique then add the input to the drop down
-    console.log(room); // chat & chatValue contains new room at this point ** DB **
-    console.log(roomValue);
-    roomList.add(option);
+    $.post("/api/session", {
+      sessionName: room
+    }).then((result) => result.json);
+    roomList.add(option); // option contains new room at this point ** DB **
   }
 });
 
@@ -139,5 +159,8 @@ $(document).ready(function () {
   // figure out which user is logged in and update page
   $.get("/api/user_data").then(function (data) {
     $(".member-name").text(data.email);
+    console.log(data.id);
+    $(".member-name").attr("data-userId", data.id);
+    renderChars();
   });
 });
