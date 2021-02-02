@@ -50,9 +50,10 @@ module.exports = function (app) {
     db.Character.create({
       name: req.body.name,
       UserId: req.body.UserId,
+    }).then(function(dbCharacter) {
+      res.json(dbCharacter);
     }).catch(function (err) {
       res.status(401).json(err);
-    });
   });
 
   app.get("/api/character/:id", function(req, res) {
