@@ -57,9 +57,12 @@ function outputRoomName(room) {
 
 // User names CSS
 function outputUsers(users) {
-  userList.innerHTML = `
-    ${users.map((user) => `<li>${user.username}</li>`).join("")}
-  `;
+  userList.innerHTML = "";
+  users.forEach(user=>{
+    const li = document.createElement("li");
+    li.innerText = user.username;
+    userList.appendChild(li);
+  });
 }
 
 socket.on("roomUsers", ({ room, users }) => {
