@@ -2,7 +2,7 @@
   "name": "project_2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "jest"
   },
@@ -23,6 +23,7 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "jest": "^26.6.3",
+    "memorystore": "^1.6.4",
     "moment": "^2.29.1",
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
