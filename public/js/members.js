@@ -9,6 +9,7 @@ const characterForm = document.getElementById("submitChar");
 const charName = document.getElementById("charName");
 const charList = document.getElementById("char");
 const charSelectList = document.getElementById("username");
+// const userIdEl = document.querySelectorAll(".member-name");
 
 // how to change images manually
 var manualNav = function(manual){
@@ -64,7 +65,8 @@ repeat();
 
 function renderChars() {
   charList.innerHTML = "";
-  let userId = userIdEl.getAttribute("data-userId");
+  // console.log(userIdEl);
+  let userId = $(".member-name").attr("data-userId");
   console.log(userId);
   $.get(`/api/characters/${userId}`).then(function (data) {
     console.log(data[0]);
@@ -80,7 +82,7 @@ function renderChars() {
 
 characterForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  let userId = userIdEl.getAttribute("data-userId");
+  let userId = $(".member-name").attr("data-userId");
   let char = charName.value; // grab the content of the input
   char = char.trim(); // clean up any extra spaces around input
   let charValue = char.replace(/ /g, "-"); // reformat inputs to work as searchable values
