@@ -8,8 +8,6 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
     /> -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
     <link href="css/signup.css" rel="stylesheet" />
   </head>
 
@@ -27,14 +25,14 @@
         <!-- I tried to tear out most of the styling, but this alert is pretty reliant on bootstrap. we should replace it with something more custom. -->
         <div style="display: none" id="alert" class="alert alert-danger" role="alert"> <!-- its important to keep the alert id, it connects to the signup.js file -->
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-          <span class="sr-only">Error:</span> <span class="msg"></span>
+          <span class="sr-only"></span> <span class="msg"></span>
         </div>
           <button type="submit">Sign Up</button>
 
         </form>
       </div>
       
-      <br />
+      <br/>
       <p>Or log in <a href="/login">here</a></p> <!-- this sends the user to the login page -->
     </div>
 

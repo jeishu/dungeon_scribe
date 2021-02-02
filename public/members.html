@@ -1,182 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Dungeon Scribe</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- <link
+
+<head>
+  <title>Dungeon Scribe</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
     /> -->
-    <link href="css/members.css" rel="stylesheet" />
-  </head>
+  <link href="css/members.css" rel="stylesheet" />
+</head>
 
-  <body>
-    <!-- this is the users profile page -->
-    <div class="main-container display-flex-row justify-align-center">
-      
-      <!-- ============== RIGHT CONTAINER ============== -->
-      <div class="container-right box-shadow display-flex-column">
+<body>
+  <!-- this is the users profile page -->
+  <div class="main-container display-flex-row justify-align-center">
 
-        <div class="chat-container inset-gray">
-          <h2>Game Archive</h2>
-          <ul class="chat-archive">
-            <li>January 10</li>
-            <li>January 12</li>
-            <li>January 20</li>
-          </ul>
+    <!-- ============== RIGHT CONTAINER ============== -->
+    <div class="container-right display-flex-row">
+
+      <div class="img-slider box-shadow">
+        <div class="slide active">
+          <img src="/images/dragon.jpg" alt="">
+          <div class="info">
+            <h2>Mushu</h2>
+          </div>
         </div>
-
-        <div class="chat-logbox inset-gray">
-          <h2>Game Log</h2>
+        <div class="slide">
+          <img src="/images/elf.jpg" alt="">
+          <div class="info">
+            <h2>Legolas</h2>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="/images/gardenfairy.jpg" alt="">
+          <div class="info">
+            <h2>Wanda & Cosmo</h2>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="/images/revenant.jpg" alt="">
+          <div class="info">
+            <h2>Revenant</h2>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="/images/zelda.jpg" alt="">
+          <div class="info">
+            <h2>Kim & Kanye</h2>
+          </div>
+        </div>
+        <div class="navigation">
+          <div class="btn active"></div>
+          <div class="btn"></div>
+          <div class="btn"></div>
+          <div class="btn"></div>
+          <div class="btn"></div>
         </div>
       </div>
-    
-      <!-- ============== LEFT CONTAINER ============== -->
-      <div class="container-left display-flex-column">
-        
-        <div class="user-profile box-shadow display-flex-row">
-          <h2>Welcome <span class="member-name"></span></h2> <!-- this connects to the members.js file -->
-        </div>
-        
-        <!-- =========== Characters =========== -->
-        <div class="char-fav-container box-shadow display-flex-row justify-align-center">
 
-          <!-- Character List -->
-          <div class="characters display-flex-column">
-            <h2>Characters</h2>
-            <div class="img-slider">
-              <div class="slide active">
-                <img src="/images/dragon.jpg" alt="">
-                <div class="info">
-                  <h2>Mushu</h2>
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptas eum adipisci provident deleniti doloribus, quos illo? Unde minus repellendus consectetur, reprehenderit fugiat recusandae aliquam expedita earum aperiam hic dicta?</p>
-                </div>
-              </div>
-              <div class="slide">
-                <img src="/images/elf.jpg" alt="">
-                <div class="info">
-                  <h2>Legolas</h2>
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptas eum adipisci provident deleniti doloribus, quos illo? Unde minus repellendus consectetur, reprehenderit fugiat recusandae aliquam expedita earum aperiam hic dicta?</p>
-                </div>
-              </div>
-              <div class="slide">
-                <img src="/images/gardenfairy.jpg" alt="">
-                <div class="info">
-                  <h2>Wanda & Cosmo</h2>
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptas eum adipisci provident deleniti doloribus, quos illo? Unde minus repellendus consectetur, reprehenderit fugiat recusandae aliquam expedita earum aperiam hic dicta?</p>
-                </div>
-              </div>
-              <div class="slide">
-                <img src="/images/revenant.jpg" alt="">
-                <div class="info">
-                  <h2>Revenant</h2>
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptas eum adipisci provident deleniti doloribus, quos illo? Unde minus repellendus consectetur, reprehenderit fugiat recusandae aliquam expedita earum aperiam hic dicta?</p>
-                </div>
-              </div>
-              <div class="slide">
-                <img src="/images/zelda.jpg" alt="">
-                <div class="info">
-                  <h2>Kim & Kanye</h2>
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptas eum adipisci provident deleniti doloribus, quos illo? Unde minus repellendus consectetur, reprehenderit fugiat recusandae aliquam expedita earum aperiam hic dicta?</p>
-                </div>
-              </div>
-              <div class="navigation">
-                <div class="btn active"></div>
-                <div class="btn"></div>
-                <div class="btn"></div>
-                <div class="btn"></div>
-                <div class="btn"></div>
-              </div>
-            </div>
-
-
-          <!-- Favorite Actions -->
-          <div class="fav-actions inset-purple display-flex-column ">
-            <h2>Favorite Actions</h2>
-          </div>
-        </div>
-
-        <div class="chatroom-form box-shadow display-flex-column justify-align-center">
-          <div class="chatroom display-flex-column">
-            <h2>Chat Room</h2>
-              <form action="tempChatRoom.html">
-                <div class="form-control display-flex-row justify-align-center">
-                  <label for="username">Username</label>
-                  <input
-                    type="text"
-                    name="username"
-                    id="username"
-                    placeholder="Enter username..."
-                    required
-                  />
-                </div>
-                <div class="form-control display-flex-row justify-align-center">
-                  <label for="room">Room</label>
-                  <select name="room" id="room"> <!-- we want to add the ability to create new chat rooms -->
-                    <option value="Drow-Ambush">Drow Ambush</option>
-                  </select>
-                </div>
-                <button type="submit" class="chat-submit">Join Chat</button>
-              </form>
-          </div>
-          
-        </div>
-
-        <div class="game-button box-shadow display-flex-row justify-align-center">
-          <div class="lobby-button box-shadow display-flex-row">
-            <button class="start-game">New Session</button>
-            <button class="join-current inset-purple box-shadow">Join Session</button>
-          </div>
-          
-          <a class="logout box-shadow" href="/logout"> Logout </a> <!-- this routes to the logout and sends the user back to the login/signup pages -->
-        </div>
-
+      <div class="chat-container box-shadow">
+        <h2>Game Archive</h2>
+        <ul class="chat-archive">
+          <li>January 10</li>
+          <li>January 12</li>
+          <li>January 20</li>
+        </ul>
       </div>
-      
+
+      <div class="chat-logbox box-shadow">
+        <h2>Game Log</h2>
+      </div>
     </div>
 
+    <!-- ============== LEFT CONTAINER ============== -->
+    <div class="container-left display-flex-row">
 
-  </div>
-  
-  <br>
+      <div class="user-profile box-shadow display-flex-row justify-align-center">
+        <h2>Welcome <span class="member-name"></span></h2> <!-- this connects to the members.js file -->
+        <a class="logout box-shadow" href="/logout"> Logout </a>
+        <!-- this routes to the logout and sends the user back to the login/signup pages -->
+      </div>
 
-  <!-- select for picking from current character list -->
-  <div class="form-control display-flex-row justify-align-center">
-    <label for="char">Characters</label>
-    <select name="char" id="char"> <!-- we want to add the ability to create new chat rooms -->
-      <option value="Test-Room">Drizzt Do'Urden</option>
-    </select>
-  </div>
+      <!-- =========== CHARACTERS =========== -->
+      <div class="char-fav-container box-shadow display-flex-row">
 
-  <!-- new character name -->
-  <form id="submitChar">
-    <label for="charName">New Character</label>
-    <input
-      type="text"
-      name="charName"
-      id="charName"
-      placeholder="Enter character name..."
-      required
-    />
-    <button type="submit" class="chat-submit">New Character</button>
-  </form>
+        <!-- Character Creation -->
+        <div class="characters display-flex-column">
+          <h2>Characters</h2>
 
-  <!-- new chatroom name -->
-  <form id="submitChat">
-    <label for="chatName">New Session</label>
-    <input
-      type="text"
-      name="chatName"
-      id="chatName"
-      placeholder="Enter Session name..."
-      required
-    />
-    <button type="submit" class="chat-submit">New Session</button>
-  </form>
+          <div class="create-character display-flex-column">
+            <!-- select for picking from current character list -->
+            <div class="form-control display-flex-column">
+              <label for="char">Current Characters</label>
+              <select name="char" id="char">
+                <!-- we want to add the ability to create new chat rooms -->
+                <option value="Test-Room">Drizzt Do'Urden</option>
+              </select>
+            </div>
+
+            <!-- new character name -->
+            <form id="submitChar">
+              <div class="form-control display-flex-column">
+                <label for="charName">New Character Name</label>
+                <input type="text" name="charName" id="charName" placeholder="Enter character name..." required />
+              </div>
+              <button type="submit" class="chat-submit">Create</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Favorite Actions -->
+        <div class="fav-actions display-flex-column ">
+          <h2>Favorite Actions</h2>
+        </div>
+
+      </div> <!-- Char-Fav-Container Container End -->
+
+      <!-- =========== CHATROOM FORM =========== -->
+      <div class="chatroom-form box-shadow display-flex-row">
+
+        <!-- Creating a new chat session -->
+        <div class="newSession display-flex-column">
+          <h2>Create Session</h2>
+          <form id="submitChat">
+            <div class="form-control display-flex-column">
+              <label for="chatName">Session Name</label>
+              <input type="text" name="chatName" id="chatName" placeholder="Enter Session name..." required />
+            </div>
+            <button type="submit" class="chat-submit">New Session</button>
+          </form>
+        </div>
+
+        <!-- Joining a Chat room -->
+        <div class="chatroom display-flex-column">
+          <h2>Join Session</h2>
+          <form action="tempChatRoom.html">
+            <div class="form-control display-flex-column">
+              <label for="username">Username</label>
+              <input type="text" name="username" id="username" placeholder="Enter username..." required />
+            </div>
+            <div class="form-control display-flex-column">
+              <label for="room">Room</label>
+              <select name="room" id="room">
+                <!-- we want to add the ability to create new chat rooms -->
+                <option value="Drow-Ambush">Drow Ambush</option>
+              </select>
+            </div>
+            <button type="submit" class="chat-submit">Join Session</button>
+          </form>
+        </div>
+
+      </div> <!-- Chatroom-form End -->
+
+    </div> <!-- Left Container End -->
+
+  </div> <!-- Main Container End -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
 
-  </body>
+</body>
+
 </html>
