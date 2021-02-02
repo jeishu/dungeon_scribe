@@ -1,23 +1,31 @@
 module.exports = function (sequelize, DataTypes) {
   var Favorite = sequelize.define("Favorite", {
-    move: {
+    moveName: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
     // eslint-disable-next-line camelcase
-    success_mod: {
+    successMod: {
       type: DataTypes.INTEGER,
       allowNull: false,
       default: 0,
     },
-    dmg: {
-      type: DataTypes.STRING,
+
+    numDmgDice: {
+      type: DataTypes.INTEGER,
       allowNull: false,
       default: 0,
     },
+
+    sidesDmgDice: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      default: 0,
+    },
+
     // eslint-disable-next-line camelcase
-    dmg_mod: {
+    dmgMod: {
       type: DataTypes.INTEGER,
       allowNull: false,
       default: 0,

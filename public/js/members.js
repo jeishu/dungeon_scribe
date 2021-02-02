@@ -89,13 +89,11 @@ characterForm.addEventListener("submit", (e) => {
   }
 
   if (exists === false) { // if unique then add the input to the drop down
-    // $.post("/api/character", {
-    //   name: char
-    // }).then((result) => result.json);
-    // console.log(result);
-    // $.get("/api/character", { 
-      
-    // });
+    $.post("/api/character", {
+      name: char,
+      UserId: userInfo.dataValues.id
+    }).then((result) => result.json);
+    console.log(result);
     charList.add(option); // option contains new character at this point ** DB **
   }
 });
@@ -139,6 +137,7 @@ $(document).ready(function () {
   // figure out which user is logged in and update page
   $.get("/api/user_data").then(function (data) {
     $(".member-name").text(data.email);
+    $(".member-name").attr("UserId", data.id);
   });
 });
 

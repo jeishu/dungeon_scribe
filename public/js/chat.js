@@ -70,7 +70,7 @@ socket.on("roomUsers", ({ room, users }) => {
 socket.on("message", message => {
   $.post("/api/chat", {
     body: message.text,
-    time: message.time,
+    time: message.time, // Is this working? Won't know until we can add CharacterId as well
   }).then((result) => result.json);
 
   console.log(message);
