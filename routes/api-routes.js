@@ -48,8 +48,8 @@ module.exports = function (app) {
   app.post("/api/character", function (req, res) {
     // create a new character
     db.Character.create({
-      name: req.body.body,
-      UserId: userInfo.dataValues.id,
+      name: req.body.name,
+      UserId: req.body.UserId,
     }).catch(function (err) {
       res.status(401).json(err);
     });
