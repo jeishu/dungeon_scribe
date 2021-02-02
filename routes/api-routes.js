@@ -91,7 +91,7 @@ module.exports = function (app) {
       for (let i = 0; i < result.length; i++) {
         resultArr.push({
           id: result[i].id,
-          name: result[i].name
+          name: result[i].name,
         });
       }
       res.json(resultArr);
@@ -130,7 +130,7 @@ module.exports = function (app) {
     // create a new favorite
     db.Session.create({
       // eslint-disable-next-line camelcase
-      sessionName: req.body.body,
+      sessionName: req.body.sessionName,
     }).catch(function (err) {
       res.status(401).json(err);
     });
@@ -140,8 +140,11 @@ module.exports = function (app) {
   //   db.Chat.create({
   //     body: req.body.body,
   //     time: req.body.time,
-  //     CharacterId: ,
+  //     CharacterId: req.body.charId,
   //   })
+  //     .then(function (chat) {
+  //       res.json(chat);
+  //     })
   //     .catch(function (err) {
   //       res.status(401).json(err);
   //     });

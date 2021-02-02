@@ -12,9 +12,9 @@ module.exports = function (sequelize, DataTypes) {
 
   // Relationships
   Chat.associate = function (models) {
-    Chat.belongsTo(models.User, {
-      onDelete: "cascade",
-    });
+    // Chat.belongsTo(models.User, {
+    //   onDelete: "cascade",
+    // });
 
     Chat.belongsTo(models.Session, {
       onDelete: "cascade",

@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const botName = "Court Scribe";
 
-io.on("connection", socket => {
+io.on("connection", (socket) => {
   socket.on("joinRoom", ({ username, room }) => {
     const user = userJoin(socket.id, username, room);
 
@@ -58,15 +58,47 @@ io.on("connection", socket => {
     });
   });
 
-  socket.on("chatMessage", msg => {
+  socket.on("chatMessage", (msg) => {
     const user = getCurrentUser(socket.id);
-
-    io.to(user.room).emit("message", formatMessage(user.username, msg));
+    let chatObj = formatMessage(user.username, msg);
+    let SessionId;
+    let CharacterId;
+    io.to(user.room).emit("message", chatObj);
+    // let chatObj = formatMessage(user.username, msg);
+    console.log(user.room);
+    db.Session.findOne({
+      where: {
+        sessionName: user.room,
+      },
+    }).then(function ({id}) {
+      SessionId = id;
+      db.Character.findOne({
+        where: {
+          name: user.username
+        }
+      }).then(function ({id}) {
+        CharacterId = id;
+        console.log(SessionId);
+        console.log(CharacterId);
+        db.Chat.create({
+          body: chatObj.text,
+          time: chatObj.time,
+          CharacterId,
+          SessionId
+        }).catch(function (err) {
+          console.log(err);
+        });
+      });
+    });
   });
 
-  socket.on("roll", roll => {
+  socket.on("roll", (roll) => {
     const user = getCurrentUser(socket.id);
-    let rollOutput = `rolled a ${die(parseInt(roll.dice), parseInt(roll.sides), parseInt(roll.mod))}`;
+    let rollOutput = `rolled a ${die(
+      parseInt(roll.dice),
+      parseInt(roll.sides),
+      parseInt(roll.mod)
+    )}`;
     console.log(rollOutput);
 
     io.to(user.room).emit("message", formatRoll(user.username, rollOutput));
