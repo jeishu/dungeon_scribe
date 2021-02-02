@@ -8,6 +8,7 @@ const roomList = document.getElementById("room");
 const characterForm = document.getElementById("submitChar");
 const charName = document.getElementById("charName");
 const charList = document.getElementById("char");
+const userIdEl = document.querySelector(".member-name");
 
 // how to change images manually
 var manualNav = function(manual){
@@ -61,18 +62,9 @@ var repeat = function(){
 
 repeat();
 
-const sessionForm = document.getElementById("submitChat");
-const chatName = document.getElementById("chatName");
-const roomList = document.getElementById("room");
-const characterForm = document.getElementById("submitChar");
-const charName = document.getElementById("charName");
-const charList = document.getElementById("char");
-let userId = document.querySelector(".member-name");
-userId = userId.getAttribute("data-userId");
-
 characterForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
+  let userId = userIdEl.getAttribute("data-userId");
   let char = charName.value; // grab the content of the input
   char = char.trim(); // clean up any extra spaces around input
   let charValue = char.replace(/ /g, "-"); // reformat inputs to work as searchable values
@@ -98,6 +90,7 @@ characterForm.addEventListener("submit", (e) => {
   }
 
   if (exists === false) { // if unique then add the input to the drop down
+    console.log(char, userId);
     $.post("/api/character", {
       name: char,
       UserId: userId
