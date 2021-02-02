@@ -3,6 +3,7 @@ const path = require("path");
 const http = require("http");
 const express = require("express");
 const session = require("express-session");
+const MemoryStore = require("memorystore")(session);
 const passport = require("./config/passport");
 const socketio = require("socket.io");
 const formatMessage = require("./public/utils/messages");
@@ -29,6 +30,14 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(session({
+  cookie: { maxAge: 86400000 },
+  store: new MemoryStore({
+    checkPeriod: 86400000 // prune expired entries every 24h
+  }),
+  resave: false,
+  secret: 'keyboard cat'
+}));
 
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
