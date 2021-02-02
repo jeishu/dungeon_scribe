@@ -1,6 +1,13 @@
 var slides = document.querySelectorAll(".slide");
 var btns = document.querySelectorAll(".btn");
-let currentSlide = 1;
+// let currentSlide = 1;
+
+const sessionForm = document.getElementById("submitChat");
+const chatName = document.getElementById("chatName");
+const roomList = document.getElementById("room");
+const characterForm = document.getElementById("submitChar");
+const charName = document.getElementById("charName");
+const charList = document.getElementById("char");
 
 // how to change images manually
 var manualNav = function(manual){
@@ -19,13 +26,14 @@ var manualNav = function(manual){
 btns.forEach((btn, i) => {
   btn.addEventListener("click", () => {
     manualNav(i);
-    currentSlide = i;
+    // currentSlide = i;
   });
 });
 
 // script for image to move automatically
 
-var repeat = function(activeClass){
+// var repeat = function(activeClass){
+var repeat = function(){
   let active = document.getElementsByClassName("active");
   let i = 1;
 
@@ -39,7 +47,7 @@ var repeat = function(activeClass){
       btns[i].classList.add("active");
       i++;
 
-      if(slides.length == i){
+      if(slides.length === i){
         i = 0;
       }
       if(i >= slides.length){
@@ -52,14 +60,6 @@ var repeat = function(activeClass){
 };
 
 repeat();
-
-
-const sessionForm = document.getElementById("submitChat");
-const chatName = document.getElementById("chatName");
-const roomList = document.getElementById("room");
-const characterForm = document.getElementById("submitChar");
-const charName = document.getElementById("charName");
-const charList = document.getElementById("char");
 
 characterForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -89,7 +89,10 @@ characterForm.addEventListener("submit", (e) => {
   }
 
   if (exists === false) { // if unique then add the input to the drop down
-    charList.add(option); // option contains new character at this point ** DB **
+    console.log(char); // char & charValue contains new character at this point ** DB **
+    console.log(charValue);
+    console.log(option);
+    charList.add(option);
   }
 });
 
@@ -121,7 +124,9 @@ sessionForm.addEventListener("submit", (e) => {
   }
 
   if (exists === false) { // if unique then add the input to the drop down
-    roomList.add(option); // option contains new room at this point ** DB **
+    console.log(chat); // chat & chatValue contains new room at this point ** DB **
+    console.log(chatValue);
+    roomList.add(option);
   }
 });
 
@@ -131,5 +136,3 @@ $(document).ready(function () {
     $(".member-name").text(data.email);
   });
 });
-
-
