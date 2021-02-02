@@ -94,8 +94,8 @@ characterForm.addEventListener("submit", (e) => {
     $.post("/api/character", {
       name: char,
       UserId: userId
-    }).then((result) => result.json);
-    console.log(result);
+    }).then(console.log("potato"));
+    // console.log(result);
     charList.add(option); // option contains new character at this point ** DB **
   }
 });
