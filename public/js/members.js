@@ -8,7 +8,7 @@ const roomList = document.getElementById("room");
 const characterForm = document.getElementById("submitChar");
 const charName = document.getElementById("charName");
 const charList = document.getElementById("char");
-const userIdEl = document.querySelector(".member-name");
+const charSelectList = document.getElementById("username");
 
 // how to change images manually
 var manualNav = function(manual){
@@ -90,9 +90,12 @@ characterForm.addEventListener("submit", (e) => {
   }
 
   let option = document.createElement("option"); // create option tag
+  let option2 = document.createElement("option"); // create option tag
 
   option.text = char; // add content and value to tag
   option.value = charValue;
+  option2.text = char; // add content and value to tag
+  option2.value = charValue;
 
   let exists = false; // for the verification that this is a unique name
   let charLength = charList.length; // used to go through each item in the select tag
@@ -113,6 +116,7 @@ characterForm.addEventListener("submit", (e) => {
     }).then(console.log("potato"));
     // console.log(result);
     charList.add(option); // option contains new character at this point ** DB **
+    charSelectList.add(option2);
   }
 });
 

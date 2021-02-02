@@ -59,8 +59,9 @@ function outputRoomName(room) {
 function outputUsers(users) {
   userList.innerHTML = "";
   users.forEach(user=>{
+    let userClean = user.username.replace(/-/g, " ");
     const li = document.createElement("li");
-    li.innerText = user.username;
+    li.innerText = userClean;
     userList.appendChild(li);
   });
 }
