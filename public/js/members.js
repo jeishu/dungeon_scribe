@@ -129,8 +129,8 @@ sessionForm.addEventListener("submit", (e) => {
   }
 
   if (exists === false) { // if unique then add the input to the drop down
-    console.log(chat); // chat & chatValue contains new room at this point ** DB **
-    console.log(chatValue);
+    console.log(room); // chat & chatValue contains new room at this point ** DB **
+    console.log(roomValue);
     roomList.add(option);
   }
 });
