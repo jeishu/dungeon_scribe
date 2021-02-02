@@ -128,7 +128,7 @@ a {
 	border-top-left-radius: 40px;
 	border-top-right-radius: 40px;
 	padding: 15px;
-	margin-left: 16px;
+	margin: 0 16px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -215,6 +215,7 @@ a {
 	flex: 1;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
+	outline: 0;
 }
 
 /* Dice */
@@ -222,11 +223,15 @@ a {
 	padding: 2rem;
 	width: fit-content;
 }
-
+.dice-btn {
+	margin: 1rem;
+	padding: 1rem;
+}
 .diceIcon {
   width: 5vw;
   height: 5vw;
   padding: 1rem;
+  margin: .5rem;
 }
 
 .dice[type="radio"] {
@@ -246,9 +251,9 @@ a {
 
 .dice[type="radio"]:checked + label > img {
   /* border: 20px solid rgb(255, 255, 255); */
-  border-radius: 25px;
-  box-shadow: inset 7px 7px 10px #383838,
-            inset -7px -7px 10px #5d5d5d;
+  border-radius: 50%;
+  box-shadow: inset 5px 5px 10px #3d3d3d,
+  inset -5px -5px 10px #575757;
 }
 .dice-input {
 	display: flex;
