@@ -111,6 +111,9 @@ a {
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
+.roll-btn {
+	border-radius: 10px;
+}
 
 /* Chat Page */
 .chat-container {
@@ -218,10 +221,10 @@ a {
 	
 }
 .diceIcon {
-  font-size: 2rem;
-  width: 10vw;
-  height: 10vw;
-  padding: 2vw;
+  font-size: 1rem;
+  width: 5vw;
+  height: 5vw;
+  padding: 1rem;
 }
 
 .dice[type="radio"] {
@@ -236,10 +239,20 @@ a {
 .diceIcon:active {
   opacity: 0.4;
   cursor: pointer;
+  border-radius: 25%;
+  background: var(--main-color);
+  box-shadow: inset 5px 5px 14px #3f3f3f, inset -5px -5px 14px #555555;
 }
 
 .dice[type="radio"]:checked + label > i {
   border: 20px solid rgb(228, 207, 94);
+}
+.numDiceRoll {
+	padding: 10px;
+	margin-left: 30px ;
+	max-height: 500px;
+	overflow-y: scroll;
+	background-color: white;
 }
 
 .modIcon {
