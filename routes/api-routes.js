@@ -47,6 +47,7 @@ module.exports = function (app) {
       res.status(401).json(err);
     });
   });
+
   // app.post("/api/chat", function (req, res) {
   // signing up a new user
   // db.Chat.create({

@@ -33,7 +33,10 @@ characterForm.addEventListener("submit", (e) => {
   }
 
   if (exists === false) { // if unique then add the input to the drop down
-    charList.add(option); // option contains new character at this point ** DB **
+    console.log(char); // char & charValue contains new character at this point ** DB **
+    console.log(charValue);
+    console.log(option);
+    charList.add(option);
   }
 });
 
@@ -65,7 +68,9 @@ sessionForm.addEventListener("submit", (e) => {
   }
 
   if (exists === false) { // if unique then add the input to the drop down
-    roomList.add(option); // option contains new room at this point ** DB **
+    console.log(chat); // chat & chatValue contains new room at this point ** DB **
+    console.log(chatValue);
+    roomList.add(option);
   }
 });
 

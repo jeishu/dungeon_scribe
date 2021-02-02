@@ -3,8 +3,8 @@ $(document).ready(function () {
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
 
-  function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+  function handleLoginErr() {
+    $("#alert .msg").text("Please enter a unique email and password");
     $("#alert").fadeIn(500);
   }
 
