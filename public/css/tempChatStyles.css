@@ -5,7 +5,7 @@
 :root {
 	--main-color: #4a4a4a;
 	--secondary-color: #9e78a5;
-	--chat-color: #9e78a5;
+	--chat-color: #c9a2cf;
 	--padding-divs: 16px;
 	--margin-divs: 16px;  
 }
@@ -26,7 +26,9 @@ body {
 h1 {
 	font-family: 'Merienda One', cursive;
 }
-
+h2 {
+	font-size: 2rem;
+}
 ul {
   list-style: none;
 }
@@ -108,7 +110,9 @@ a {
 	border-bottom-right-radius: 10px;
 }
 .roll-btn {
-	border-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	padding: 10px;
 }
 
 /* Chat Page */
@@ -124,6 +128,7 @@ a {
 	border-top-left-radius: 40px;
 	border-top-right-radius: 40px;
 	padding: 15px;
+	margin-left: 16px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -214,9 +219,10 @@ a {
 
 /* Dice */
 .dice-container {
-	padding: 1rem;
-	margin: 1rem;
+	padding: 2rem;
+	width: fit-content;
 }
+
 .diceIcon {
   width: 5vw;
   height: 5vw;
@@ -244,19 +250,29 @@ a {
   box-shadow: inset 7px 7px 10px #383838,
             inset -7px -7px 10px #5d5d5d;
 }
+.dice-input {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+}
 .numDiceRoll {
 	padding: 10px;
-	margin-left: 30px ;
+	margin-left: 10px ;
 	max-height: 500px;
 	overflow-y: scroll;
 	background-color: white;
+	outline: 0;
+	border: 0;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
 }
 
 .modIcon {
-	font-size: 2rem;
-	width: 10vw;
-	height: auto;
-	padding: 2vw;
+	font-size: 1rem;
+
+	padding: 2vw auto;
 }
 .mod {
 	font-family: 'Marcellus SC', serif;

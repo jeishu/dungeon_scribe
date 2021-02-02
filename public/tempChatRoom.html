@@ -54,7 +54,7 @@
     <div id="rollMenu" class="dice-container box-shadow display-flex-row justify-align-center">
       <form id="rollForm">
         <h2>Dice</h2>
-        <div id="dicebtns">
+        <div id="dicebtns" >
           <input type="radio" name="choice" id="choose-d4" value="4" class="dice" />
           <label for="choose-d4">
             <img src="./images/dice/d4.svg" alt="four sided die" class="diceIcon">
@@ -80,12 +80,12 @@
             <img src="./images/dice/d20.svg" alt="" class="diceIcon">
           </label>
         </div>
-        <div>
-          <input type="number" value="0" class="chooseMod numDiceRoll" />
+        <div class="dice-input">
           <label for="chooseMod">
             <i class="fas fa-plus-circle modIcon"><span class="mod">MOD</span></i> 
           </label>
-          <button type="submit" class="btn roll-btn">Roll</button>
+          <input type="number" value="0" class="chooseMod numDiceRoll" />
+          <button type="submit" class="btn roll-btn"><i class="fas fa-dice"></i> Roll</button>
         </div>
       </form>
     </div>
