@@ -1,3 +1,4 @@
+/* GLOBAL */
 @import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
 
@@ -18,6 +19,24 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+body {
+	font-family: 'Marcellus SC', serif;
+	font-size: 16px;
+	background: var(--main-color);
+	margin: 20px;
+}
+
+h1 {
+	font-family: 'Merienda One', cursive;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* v ===================== Class Frameworks Global ===================== v */
@@ -59,7 +78,6 @@
   /* Track */
 ::-webkit-scrollbar-track {
 	box-shadow: inset 5px 5px 14px #3f3f3f, inset -5px -5px 14px #555555;
-
 	border-radius: 0;
 }
    
@@ -72,26 +90,12 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {background: var(--secondary-color); }
 /* ===================== Scroll Bar Ends ===================== */
-
-body {
-	font-family: 'Marcellus SC', serif;
-	font-size: 16px;
-	background: var(--main-color);
-	margin: 20px;
+/* Main Container */
+.main-container {
+	margin: 32px;
+	padding: 32px;
 }
-
-h1 {
-	font-family: 'Merienda One', cursive;
-}
-
-ul {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
-
+/* Buttons */
 .btn {
 	cursor: pointer;
 	padding: 5px 15px;
@@ -164,6 +168,7 @@ a {
 
 .chat-messages {
 	padding: 30px;
+	margin-left: 30px ;
 	max-height: 500px;
 	overflow-y: scroll;
 	background-color: white;
