@@ -33,8 +33,8 @@ a {
 }
 
 .bot-space {
-  height: 10px;
-  padding-bottom: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
 }
 
 /* v ===================== Class Frameworks Global ===================== v */
@@ -91,7 +91,7 @@ a {
 .main-container {
   margin: 16px;
   border-radius: 25px;
-  height: 90vh;
+  height: fit-content;
   background: var(--main-color);
 }
 
