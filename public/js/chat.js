@@ -30,6 +30,23 @@ chatForm.addEventListener("submit", (e) => {
   e.target.elements.msg.focus();
 });
 
+function renderChatHistory() {
+  $.get(`/api/chats/${room}`).then(function (data) {
+    console.log(JSON.stringify(data));
+    data.reverse();
+    data.forEach((chat) => {
+      const div = document.createElement("div");
+      div.classList.add("message");
+      div.innerHTML = `<p class="meta">${chat.Character.name} <span>${chat.time}</span></p>
+      <p class="text">
+        ${chat.body}
+      </p>`;
+      document.querySelector(".chat-messages").prepend(div);
+      console.log(chat);
+    });
+  });
+}
+
 // CSS the Message bubbles
 function outputMessage(message) {
   const div = document.createElement("div");
@@ -118,3 +135,5 @@ rollForm.addEventListener("submit", (e) => {
   // e.target.elements.msg.value = "";
   // e.target.elements.msg.focus();
 });
+
+renderChatHistory();
