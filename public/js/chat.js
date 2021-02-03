@@ -44,6 +44,7 @@ function renderChatHistory() {
       document.querySelector(".chat-messages").prepend(div);
       console.log(chat);
     });
+    chatMessages.scrollTop = chatMessages.scrollHeight;
   });
 }
 
