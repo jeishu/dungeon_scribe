@@ -1,5 +1,6 @@
 /* Global */
 @import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
 
 * {
   margin: 0;
@@ -91,8 +92,8 @@ button:hover {
 
 .intro-text {
   color: rgb(235, 223, 223);
-  font-family: "Cormorant Garamond", serif;
-  font-size: 40px;
+  font-family: 'Merienda One', cursive;
+  font-size: 35px;
   letter-spacing: 1px;
   line-height: 100px;
 }

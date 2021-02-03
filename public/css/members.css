@@ -19,6 +19,7 @@ body {
   color: rgb(206, 206, 206);
   margin: 16px;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 h2 {
   /* padding: var(--padding-divs); */
@@ -60,7 +61,27 @@ a {
   align-items: center;
 }
 /* ^ ===================== Class Frameworks Global ===================== ^ */
-
+/* ===================== Scroll Bar ===================== */
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+  
+  /* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 5px 5px 14px #3f3f3f, inset -5px -5px 14px #555555;
+	border-radius: 0;
+}
+   
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--secondary-color); 
+	border-radius: 0px;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {background: var(--secondary-color); }
+/* ===================== Scroll Bar Ends ===================== */
 /* Containers */
 .main-container {
   margin: 16px;
