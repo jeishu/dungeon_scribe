@@ -49,10 +49,6 @@ Main Features:
 | | jest | sequelize |
 | | | socket.io
 
-## Developer-Notes
-
-> From Jeremy Zhu
-
 
 ## Reference
 
@@ -63,7 +59,7 @@ Main Features:
 
 
 ## Contributors
-| UI Design | Frontend | Backend |
+| UI Design | Floating | Backend |
 | --- | --- | --- |
 | Jeremy Zhu | Dan Aument | Joey Sisk |
 | Darren Garcia | | Alexandra Hinton
