@@ -149,7 +149,7 @@ io.on("connection", (socket) => {
 });
 
 db.sequelize.sync({
-  force: true
+  // force: true
 }).then(function () {
   server.listen(PORT, function () {
     console.log(
