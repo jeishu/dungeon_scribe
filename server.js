@@ -148,7 +148,9 @@ io.on("connection", (socket) => {
   });
 });
 
-db.sequelize.sync().then(function () {
+db.sequelize.sync({
+  force: true
+}).then(function () {
   server.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
