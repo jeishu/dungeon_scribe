@@ -57,6 +57,7 @@ input {
   padding: 16px;
   background-color: #505050;
   text-shadow: 1px 1px 0 #292929;
+  color: white;
 }
 
 button {

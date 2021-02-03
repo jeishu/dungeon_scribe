@@ -147,7 +147,8 @@ characterForm.addEventListener("submit", (e) => {
     console.log(result);
     renderChars();
   });
-
+  charName.value = "";
+  charName.focus();
   // console.log(result);
   // charList.add(option); // option contains new character at this point ** DB **
   // charSelectList.add(option2);
@@ -196,6 +197,8 @@ sessionForm.addEventListener("submit", (e) => {
   // roomList.add(option); // option contains new room at this point ** DB **
   // }
   });
+  chatName.value = "";
+  chatName.focus();
 });
 
 $(document).ready(function () {

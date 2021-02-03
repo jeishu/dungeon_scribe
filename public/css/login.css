@@ -44,6 +44,7 @@ input {
   box-shadow: inset 6px 6px 9px #3d3d3d, inset -6px -6px 9px #575757;
   width: 100%;
   transition: 0.5s all;
+  color: white;
 }
 
 input:focus {
