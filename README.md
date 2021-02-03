@@ -39,7 +39,11 @@ Main Features:
 
 ## Demo
 
-![Picture](https://prnt.sc/y6w76d)
+![Picture](./public/images/DungeonScribe1.png)
+
+![Picture](./public/images/DungeonScribe2.png)
+
+![Picture](./public/images/DungeonScribe3.png)
 
 ## Technology
 
