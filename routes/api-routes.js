@@ -192,7 +192,30 @@ module.exports = function (app) {
   //       res.status(401).json(err);
   //     });
   // });
-
+  app.get("/api/chats/:sessionName", function (req, res) {
+    console.log(`sessionName from url is ${req.params.sessionName}`);
+    let sessionId;
+    db.Session.findOne({
+      where: {
+        sessionName: req.params.sessionName,
+      },
+    }).then(function ({ id }) {
+      sessionId = id;
+      db.Chat.findAll({
+        where: {
+          SessionId: sessionId,
+        },
+        include: [db.Character]
+      })
+        .then(function (results) {
+          console.log(JSON.stringify(results));
+          res.json(results);
+        })
+        .catch(function (err) {
+          res.status(401).json(err);
+        });
+    });
+  });
   app.get("/logout", function (req, res) {
     req.logout(); // logout and send to homepage
     res.redirect("/");
