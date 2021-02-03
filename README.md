@@ -10,10 +10,9 @@ Dugneon Scribe is an web-base application designed to give users/players the abi
 * [Links](#Links)
 * [Demo](#Demo)
 * [Technology](#Technology)
-* [Developer-Notes](#Developer-Notes)
 * [Reference](#Reference)
-* [Credits](#Credits)
 * [Contributors](#Contributors)
+* [Questions](#Questions)
 * [License](#License)
 
 ## Features
@@ -40,7 +39,7 @@ Main Features:
 
 ## Demo
 
-![]()
+![Picture](https://prnt.sc/y6w76d)
 
 ## Technology
 
@@ -56,9 +55,6 @@ Main Features:
 
 ## Reference
 
-
-
-## Credits
 
 | Name | Description |
 | --- | --- | 
