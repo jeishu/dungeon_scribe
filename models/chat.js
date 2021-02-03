@@ -5,16 +5,16 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     time: {
-      type: DataTypes.TIME,
+      type: DataTypes.STRING,
       allowNull: false
     }
   });
 
   // Relationships
   Chat.associate = function (models) {
-    Chat.belongsTo(models.User, {
-      onDelete: "cascade",
-    });
+    // Chat.belongsTo(models.User, {
+    //   onDelete: "cascade",
+    // });
 
     Chat.belongsTo(models.Session, {
       onDelete: "cascade",

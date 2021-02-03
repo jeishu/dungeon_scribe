@@ -91,7 +91,31 @@ module.exports = function (app) {
       for (let i = 0; i < result.length; i++) {
         resultArr.push({
           id: result[i].id,
-          name: result[i].name
+          name: result[i].name,
+        });
+      }
+      res.json(resultArr);
+    });
+  });
+
+  app.get("/api/sessions/:id", function (req, res) {
+    // create a new favorite
+    db.Session.findAll({
+      where: {
+        UserId: req.params.id,
+      },
+    }).then(function (result) {
+      console.log(JSON.stringify(result));
+      // let resultArray = result.map(x => {
+      //   id: x.id,
+      //   name: x.name
+      // });
+
+      let resultArr = [];
+      for (let i = 0; i < result.length; i++) {
+        resultArr.push({
+          id: result[i].id,
+          name: result[i].name,
         });
       }
       res.json(resultArr);
@@ -126,22 +150,44 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/sessions", function (req, res) {
+    // create a new favorite
+    db.Session.findAll({}).then(function (result) {
+      let resultArr = [];
+      for (let i = 0; i < result.length; i++) {
+        resultArr.push({
+          id: result[i].id,
+          sessionName: result[i].sessionName,
+        });
+      }
+      res.json(resultArr);
+    });
+  });
+
   app.post("/api/session", function (req, res) {
     // create a new favorite
     db.Session.create({
       // eslint-disable-next-line camelcase
-      sessionName: req.body.body,
-    }).catch(function (err) {
-      res.status(401).json(err);
-    });
+      sessionName: req.body.sessionName,
+      UserId: req.body.UserId,
+    })
+      .then(function (result) {
+        res.json(result);
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
   });
 
   // app.post("/api/chat", function (req, res) {
   //   db.Chat.create({
   //     body: req.body.body,
   //     time: req.body.time,
-  //     CharacterId: ,
+  //     CharacterId: req.body.charId,
   //   })
+  //     .then(function (chat) {
+  //       res.json(chat);
+  //     })
   //     .catch(function (err) {
   //       res.status(401).json(err);
   //     });
