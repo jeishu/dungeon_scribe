@@ -170,9 +170,13 @@ module.exports = function (app) {
       // eslint-disable-next-line camelcase
       sessionName: req.body.sessionName,
       UserId: req.body.UserId,
-    }).catch(function (err) {
-      res.status(401).json(err);
-    });
+    })
+      .then(function (result) {
+        res.json(result);
+      })
+      .catch(function (err) {
+        res.status(401).json(err);
+      });
   });
 
   // app.post("/api/chat", function (req, res) {

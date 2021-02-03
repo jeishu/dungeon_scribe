@@ -189,10 +189,13 @@ sessionForm.addEventListener("submit", (e) => {
   $.post("/api/session", {
     sessionName: room,
     UserId: userId,
-  }).then((result) => result.json);
-  renderSessions();
+  }).then((result) => {
+    result.json;
+    renderSessions();
+    console.log("rendersessionslog");
   // roomList.add(option); // option contains new room at this point ** DB **
   // }
+  });
 });
 
 $(document).ready(function () {
