@@ -1,15 +1,11 @@
+/* GLOBAL */
 @import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
 
 :root {
-	--dark-color-a: #667aff;
-	--dark-color-b: #7386ff;
-	--light-color: #e6e9ff;
-	--success-color: #5cb85c;
-	--error-color: #d9534f;
-
 	--main-color: #4a4a4a;
 	--secondary-color: #9e78a5;
+	--chat-color: #c9a2cf;
 	--padding-divs: 16px;
 	--margin-divs: 16px;  
 }
@@ -18,6 +14,27 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+body {
+	font-family: 'Marcellus SC', serif;
+	font-size: 16px;
+	background: var(--main-color);
+	margin: 20px;
+	color: white;
+}
+
+h1 {
+	font-family: 'Merienda One', cursive;
+}
+h2 {
+	font-size: 2rem;
+}
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* v ===================== Class Frameworks Global ===================== v */
@@ -59,7 +76,6 @@
   /* Track */
 ::-webkit-scrollbar-track {
 	box-shadow: inset 5px 5px 14px #3f3f3f, inset -5px -5px 14px #555555;
-
 	border-radius: 0;
 }
    
@@ -72,26 +88,12 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {background: var(--secondary-color); }
 /* ===================== Scroll Bar Ends ===================== */
-
-body {
-	font-family: 'Marcellus SC', serif;
-	font-size: 16px;
-	background: var(--main-color);
-	margin: 20px;
+/* Main Container */
+.main-container {
+	margin: 32px;
+	padding: 32px;
 }
-
-h1 {
-	font-family: 'Merienda One', cursive;
-}
-
-ul {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
-
+/* Buttons */
 .btn {
 	cursor: pointer;
 	padding: 5px 15px;
@@ -107,6 +109,11 @@ a {
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
+.roll-btn {
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	padding: 10px;
+}
 
 /* Chat Page */
 .chat-container {
@@ -121,6 +128,7 @@ a {
 	border-top-left-radius: 40px;
 	border-top-right-radius: 40px;
 	padding: 15px;
+	margin: 0 16px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -164,7 +172,8 @@ a {
 
 .chat-messages {
 	padding: 30px;
-	max-height: 500px;
+	margin-left: 30px ;
+	height: 500px;
 	overflow-y: scroll;
 	background-color: white;
 }
@@ -172,20 +181,20 @@ a {
 .chat-messages .message {
   padding: 10px;
   margin-bottom: 15px;
-  background-color: var(--light-color);
+  background-color: var(--chat-color);
   border-radius: 5px;
 }
 
 .chat-messages .message .meta {
   font-size: 15px;
   font-weight: bold;
-  color: var(--dark-color-b);
+  color: var(--main-color);
   opacity: 0.7;
   margin-bottom: 7px;
 }
 
 .chat-messages .message .meta span {
-  color: #777;
+  color: rgb(255, 255, 255);
 }
 
 .chat-form-container {
@@ -206,14 +215,23 @@ a {
 	flex: 1;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
+	outline: 0;
 }
 
 /* Dice */
+.dice-container {
+	padding: 2rem;
+	width: fit-content;
+}
+.dice-btn {
+	margin: 1rem;
+	padding: 1rem;
+}
 .diceIcon {
-  font-size: 2rem;
-  width: 10vw;
-  height: 10vw;
-  padding: 2vw;
+  width: 5vw;
+  height: 5vw;
+  padding: 1rem;
+  margin: .5rem;
 }
 
 .dice[type="radio"] {
@@ -226,19 +244,45 @@ a {
 }
 
 .diceIcon:active {
-  opacity: 0.4;
   cursor: pointer;
+  border-radius: 50%;
+  background-color: var(--main-color);
 }
 
-.dice[type="radio"]:checked + label > i {
-  border: 20px solid rgb(228, 207, 94);
+.dice[type="radio"]:checked + label > img {
+  /* border: 20px solid rgb(255, 255, 255); */
+  border-radius: 50%;
+  box-shadow: inset 5px 5px 10px #3d3d3d,
+  inset -5px -5px 10px #575757;
+}
+.dice-input {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+}
+.numDiceRoll {
+	padding: 10px;
+	margin-left: 10px ;
+	max-height: 500px;
+	overflow-y: scroll;
+	background-color: white;
+	outline: 0;
+	border: 0;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
 }
 
 .modIcon {
-	font-size: 2rem;
-	width: 10vw;
-	height: 10vw;
-	padding: 2vw;
+	font-size: 1rem;
+
+	padding: 2vw auto;
+}
+.mod {
+	font-family: 'Marcellus SC', serif;
+	color: white;
+	margin: 16px;
 }
 
 @media (max-width: 700px) {
