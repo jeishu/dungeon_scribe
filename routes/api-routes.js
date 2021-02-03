@@ -150,11 +150,26 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/sessions", function (req, res) {
+    // create a new favorite
+    db.Session.findAll({}).then(function (result) {
+      let resultArr = [];
+      for (let i = 0; i < result.length; i++) {
+        resultArr.push({
+          id: result[i].id,
+          sessionName: result[i].sessionName,
+        });
+      }
+      res.json(resultArr);
+    });
+  });
+
   app.post("/api/session", function (req, res) {
     // create a new favorite
     db.Session.create({
       // eslint-disable-next-line camelcase
       sessionName: req.body.sessionName,
+      UserId: req.body.UserId,
     }).catch(function (err) {
       res.status(401).json(err);
     });

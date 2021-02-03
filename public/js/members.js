@@ -10,7 +10,7 @@ const charName = document.getElementById("charName");
 const charList = document.getElementById("char");
 const charSelectList = document.getElementById("username");
 // const userIdEl = document.querySelectorAll(".member-name");
-const roomSelect = document.getElementById("room");
+// const roomSelect = document.getElementById("room");
 
 // how to change images manually
 var manualNav = function (manual) {
@@ -90,18 +90,18 @@ function renderChars() {
 }
 
 function renderSessions() {
-  roomSelect.innerHTML = "";
-  let userId = $(".member-name").attr("data-userId");
-  console.log(`roomSelect ${userId}`);
-  $.get(`/api/sessions/${userId}`).then(function (data) {
+  roomList.innerHTML = "";
+  // let userId = $(".member-name").attr("data-userId");
+  // console.log(`roomSelect ${userId}`);
+  $.get("/api/sessions/").then(function (data) {
     console.log(data);
-    data.forEach(session => {
+    data.forEach((session) => {
       let sessionEl = document.createElement("option");
       let sessionValue = session.sessionName.replace(/ /g, "-");
-      sessionEL.setAttribute("value", sessionValue);
-      sessionEl.setAttribute("data-sessionId", `${session.id}`);
-      sessionEl.innerText = `${session.name}`;
-      roomSelect.append(sessionEl);
+      sessionEl.setAttribute("value", sessionValue);
+      sessionEl.setAttribute("data-sessionId", `${session.id}`); //not used currently
+      sessionEl.innerText = `${session.sessionName}`;
+      roomList.append(sessionEl);
     });
   });
 }
@@ -142,7 +142,7 @@ characterForm.addEventListener("submit", (e) => {
   $.post("/api/character", {
     name: char,
     UserId: userId,
-  }).then(function (result){
+  }).then(function (result) {
     console.log("potato");
     console.log(result);
     renderChars();
@@ -156,40 +156,43 @@ characterForm.addEventListener("submit", (e) => {
 
 sessionForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
+  let userId = $(".member-name").attr("data-userId");
+  console.log(`create session ${userId}`);
   let room = chatName.value; // grab the content of the input
   room = room.trim(); // clean up any extra spaces around input
-  let roomValue = room.replace(/ /g, "-"); // reformat inputs to work as searchable values
+  // let roomValue = room.replace(/ /g, "-"); // reformat inputs to work as searchable values
 
   if (!room) {
     // verify the input was not empty
     return false;
   }
 
-  let option = document.createElement("option"); // create option tag
+  // let option = document.createElement("option"); // create option tag
 
-  option.text = room; // add content and value to tag
-  option.value = roomValue;
+  // option.text = room; // add content and value to tag
+  // option.value = roomValue;
 
-  let exists = false; // for the verification that this is a unique name
-  let roomLength = roomList.length; // used to go through each item in the select tag
+  // let exists = false; // for the verification that this is a unique name
+  // let roomLength = roomList.length; // used to go through each item in the select tag
 
-  while (roomLength--) {
-    // checks each select option against new input
-    if (roomList.options[roomLength].value === roomValue) {
-      console.log(roomList.options[roomLength].value);
-      exists = true;
-      break;
-    }
-  }
+  // while (roomLength--) {
+  //   // checks each select option against new input
+  //   if (roomList.options[roomLength].value === roomValue) {
+  //     console.log(roomList.options[roomLength].value);
+  //     exists = true;
+  //     break;
+  //   }
+  // }
 
-  if (exists === false) {
-    // if unique then add the input to the drop down
-    $.post("/api/session", {
-      sessionName: room,
-    }).then((result) => result.json);
-    roomList.add(option); // option contains new room at this point ** DB **
-  }
+  // if (exists === false) {
+  // if unique then add the input to the drop down
+  $.post("/api/session", {
+    sessionName: room,
+    UserId: userId,
+  }).then((result) => result.json);
+  renderSessions();
+  // roomList.add(option); // option contains new room at this point ** DB **
+  // }
 });
 
 $(document).ready(function () {
