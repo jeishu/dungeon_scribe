@@ -56,7 +56,10 @@ Main Features:
 
 ## Credits
 
-
+| Name | Description |
+| --- | --- | 
+| [Traversy Media](https://www.youtube.com/watch?v=jD7FnbI76Hg&t=776s) | This Youtube video and the developer help us with the creation of the chat |
+| [Game-Icons](https://game-icons.net/tags/dice.html) | Dice icons were pulled from here. |
 
 ## Contributors
 | UI Design | Floating | Backend |
