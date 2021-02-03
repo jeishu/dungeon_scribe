@@ -168,6 +168,7 @@ input, select {
   border-radius: 10px;
   padding: 8px;
   background-color: #505050;
+  color: rgb(233, 233, 233);
 }
 
 input:focus {
