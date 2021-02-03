@@ -22,9 +22,7 @@ module.exports = function (sequelize, DataTypes) {
       onDelete: "cascade",
     });
 
-    User.hasMany(models.Session, {  //Dan just added this and it doesn't work
-      onDelete: "cascade",
-    });
+    User.belongsToMany(models.Session, { through: "User_Sessions" });
   };
 
   User.prototype.validPassword = function (password) {

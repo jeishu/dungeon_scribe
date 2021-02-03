@@ -94,6 +94,7 @@ function renderSessions() {
   let userId = $(".member-name").attr("data-userId");
   console.log(`roomSelect ${userId}`);
   $.get(`/api/sessions/${userId}`).then(function (data) {
+    console.log(data);
     data.forEach(session => {
       let sessionEl = document.createElement("option");
       let sessionValue = session.sessionName.replace(/ /g, "-");
