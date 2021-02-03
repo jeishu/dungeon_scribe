@@ -27,7 +27,11 @@ Main Features:
     * [x] Join other users that have already created a session
     * [x] Utilize our very own dice roll feature
     * [x] Chat with other users in the same chat room as them
-
+* Application can:
+    * [x] Save your newly created character
+    * [x] Load your newly created character even after you refresh the page or logout and log back in
+    * [x] Save your newly created session
+    * [x] Load your newly created session even after you refresh the page or logout and log back in
 
 ## Links
 
